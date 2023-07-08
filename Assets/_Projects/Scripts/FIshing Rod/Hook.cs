@@ -7,6 +7,13 @@ namespace GMTK
     public class Hook : MonoBehaviour
     {
         private bool isSelected = false;
+        private bool inWater = false;
+        private Rigidbody2D rb;
+
+        private void Start()
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
 
         private void OnMouseDown()
         {
@@ -25,7 +32,41 @@ namespace GMTK
 
         private void OnMouseUp()
         {
-            isSelected = false;
+            if (inWater)
+            {
+                isSelected = false;
+                PositionBoundaries();
+            }
+        }
+
+        private void PositionBoundaries()
+        {
+            if (transform.position.x < -8f)
+            {
+                transform.position = new Vector3(-8f, transform.position.y, transform.position.z);
+            }
+            else if (transform.position.x > 8.5f)
+            {
+                transform.position = new Vector3(8.5f, transform.position.y, transform.position.z);
+            }
+            if (transform.position.y < -4.5f)
+            {
+                transform.position = new Vector3(transform.position.x, -4.5f, transform.position.z);
+            }
+            else if (transform.position.y > 2f)
+            {
+                transform.position = new Vector3(transform.position.x, 2f, transform.position.z);
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.tag == "Water")
+            {
+                rb.gravityScale = 0;
+                rb.velocity = Vector2.zero;
+                inWater = true;
+            }
         }
     }
 }
