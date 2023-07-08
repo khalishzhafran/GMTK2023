@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using GMTK.EventSystem;
+
 namespace GMTK.Fisher {
     public class Fisher : MonoBehaviour {
         [SerializeField] private float currentMood;
@@ -11,7 +13,7 @@ namespace GMTK.Fisher {
 
 
         private void Start() {
-            currentMood = maxMood;
+            currentMood = maxMood * 0.5f;
         }
 
 
@@ -43,6 +45,10 @@ namespace GMTK.Fisher {
         public void ChangeMood(float amount) {
             currentMood += amount;
             currentMood = Mathf.Clamp(currentMood, minMood, maxMood);
+
+            OnMoodChanged evt = Events.OnMoodChanged;
+            evt.moodChange = amount;
+            EventManager.Broadcast(evt);
         }
     }
 }
