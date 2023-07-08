@@ -14,7 +14,7 @@ namespace GMTK.Core
         [SerializeField] private float hoursPerMinute = 60f; // How many in-game hours pass per in-game minute
         [SerializeField] private float hoursFormatMultiplier = 10f; // How many in-game hours pass per in-game minute
         [SerializeField] private float daysPerHour = 24f; // How many in-game days pass per in-game hour
-        private int currentDay = 1;
+        [SerializeField] private DaySO day;
         private float currentTime = 0f;
         private float startingTime; // The time the game starts at
         private float dayDuration; // Duration of each in-game day in seconds
@@ -35,10 +35,10 @@ namespace GMTK.Core
             if (currentTime >= dayDuration)
             {
                 currentTime = startingTime;
-                currentDay++;
+                day.currentDay++;
 
                 OnDayChanged evt = Events.OnDayChanged;
-                evt.currentDay = currentDay;
+                evt.currentDay = day.currentDay;
                 EventManager.Broadcast(evt);
                 // You can trigger events here when a new day starts
             }

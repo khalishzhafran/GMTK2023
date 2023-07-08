@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-using GMTK.Camera;
+using GMTK.Cameras;
 using GMTK.EventSystem;
 
 namespace GMTK

@@ -4,7 +4,7 @@ using UnityEngine;
 
 using GMTK.EventSystem;
 
-namespace GMTK.Camera
+namespace GMTK.Cameras
 {
     public class FishingCamera : VCamera
     {
