@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+
+using GMTK.EventSystem;
 
 namespace GMTK.Core
 {
     public class GameTime : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI timeText;
-        [SerializeField] private TextMeshProUGUI dayText;
-
         [SerializeField] private float startHour = 8f; // The hour the game starts at
         [SerializeField] private float minutesPerSecond = 60f; // How many in-game minutes pass per real-time second
         [SerializeField] private float minutesFormatMultiplier = 10f; // How many in-game minutes pass per real-time second
@@ -39,7 +37,9 @@ namespace GMTK.Core
                 currentTime = startingTime;
                 currentDay++;
 
-                dayText.text = "Day\n" + currentDay.ToString();
+                OnDayChanged evt = Events.OnDayChanged;
+                evt.currentDay = currentDay;
+                EventManager.Broadcast(evt);
                 // You can trigger events here when a new day starts
             }
 
@@ -47,9 +47,10 @@ namespace GMTK.Core
             int hours = Mathf.FloorToInt(currentTime / (hoursPerMinute * minutesPerSecond)) * Mathf.FloorToInt(hoursFormatMultiplier);
             int minutes = Mathf.FloorToInt((currentTime % (hoursPerMinute * minutesPerSecond)) / minutesPerSecond) * Mathf.FloorToInt(minutesFormatMultiplier);
 
-            string formattedTime = hours.ToString("00") + ":" + minutes.ToString("00");
-
-            timeText.text = formattedTime;
+            OnTimeChanged timeChangedEvt = Events.OnTimeChanged;
+            timeChangedEvt.hours = hours;
+            timeChangedEvt.minutes = minutes;
+            EventManager.Broadcast(timeChangedEvt);
         }
     }
 }
