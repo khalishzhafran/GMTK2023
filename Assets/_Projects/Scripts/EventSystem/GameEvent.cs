@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace GMTK.EventSystem
 {
     public class GameEvent { public GameEvent() { } }
@@ -17,5 +19,15 @@ namespace GMTK.EventSystem
     {
         public int hours;
         public int minutes;
+    }
+
+    public class OnHookedObject : GameEvent
+    {
+        public Transform hookedObject;
+    }
+
+    public class OnFinishFishingGame : GameEvent
+    {
+        public OnFinishFishingGame() { }
     }
 }
