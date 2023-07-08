@@ -9,10 +9,14 @@ namespace GMTK
         private bool isSelected = false;
         private bool inWater = false;
         private Rigidbody2D rb;
+        private Collider2D col;
+        private Hook hook;
 
-        private void Start()
+        private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
+            col = GetComponent<Collider2D>();
+            hook = GetComponent<Hook>();
         }
 
         private void OnMouseDown()
@@ -22,9 +26,12 @@ namespace GMTK
 
         private void OnMouseDrag()
         {
-            if (isSelected)
+            if (isSelected && hook.enabled)
             {
+                col.enabled = false;
+
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Debug.Log(this.name);
                 mousePos.z = 0;
                 transform.position = mousePos;
             }
@@ -34,6 +41,8 @@ namespace GMTK
         {
             if (inWater)
             {
+                col.enabled = true;
+
                 isSelected = false;
                 PositionBoundaries();
             }
