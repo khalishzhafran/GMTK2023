@@ -57,8 +57,7 @@ namespace GMTK.Fisher
             currentMood = Mathf.Clamp(currentMood, minMood, maxMood);
 
             OnMoodChanged evt = Events.OnMoodChanged;
-            evt.currentMood = currentMood;
-            evt.maxMood = maxMood;
+            evt.moodChange = amount;
             EventManager.Broadcast(evt);
         }
     }

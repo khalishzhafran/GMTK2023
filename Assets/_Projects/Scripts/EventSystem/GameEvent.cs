@@ -6,8 +6,7 @@ namespace GMTK.EventSystem
 
     public class OnMoodChanged : GameEvent
     {
-        public float currentMood;
-        public float maxMood;
+        public float moodChange;
     }
 
     public class OnDayChanged : GameEvent

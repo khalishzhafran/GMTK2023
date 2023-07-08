@@ -9,6 +9,7 @@ namespace GMTK.UI
     public class FishingUI : MonoBehaviour
     {
         [SerializeField] private GameObject fishingBar;
+        [SerializeField] private RectTransform fishingBarFill;
 
         private void OnEnable()
         {

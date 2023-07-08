@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-namespace GMTK.Camera
+namespace GMTK.Cameras
 {
     public class VCamera : MonoBehaviour
     {

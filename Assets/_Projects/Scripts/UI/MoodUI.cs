@@ -9,13 +9,23 @@ namespace GMTK.UI
 {
     public class MoodUI : MonoBehaviour
     {
-        [SerializeField] private Image moodBackground;
-        [SerializeField] private Image moodFillBar;
-        [SerializeField] private float moodColorMultiplier = 1f;
+        [SerializeField] private RectTransform moodBalanceBar;
+        [SerializeField] private RectTransform moodDividerBar;
+
+        [SerializeField] private float satisfiedStartPosition = 50f; // Get this from the player
+        [SerializeField] private float satisfiedWidthBar = 40f; // Get this from the player
+        [SerializeField] private float moodDividerMaxPosition = 50;
+        [SerializeField] private float moodDividerMinPosition = -50f;
+
+        private int centerOfBalanceBar;
 
         private void Start()
         {
-            moodFillBar.fillAmount = 1f;
+            moodBalanceBar.anchoredPosition = new Vector2(satisfiedStartPosition, moodBalanceBar.anchoredPosition.y);
+            moodBalanceBar.sizeDelta = new Vector2(satisfiedWidthBar, moodBalanceBar.sizeDelta.y);
+
+            centerOfBalanceBar = Mathf.FloorToInt((moodBalanceBar.sizeDelta.x / 2f) - (moodDividerBar.sizeDelta.x / 2f)) + 1;
+            moodDividerBar.anchoredPosition = new Vector2(centerOfBalanceBar, moodDividerBar.anchoredPosition.y);
         }
 
         private void OnEnable()
@@ -30,28 +40,8 @@ namespace GMTK.UI
 
         private void OnMoodChanged(OnMoodChanged evt)
         {
-            moodFillBar.fillAmount = (float)evt.currentMood / (float)evt.maxMood;
-
-            ChangeMoodColor(moodFillBar.fillAmount);
-        }
-
-        private void ChangeMoodColor(float fillAmount)
-        {
-            if (fillAmount > 0.5f)
-            {
-                moodFillBar.color = Color.Lerp(Color.yellow, Color.green, fillAmount);
-                moodBackground.color = Color.Lerp(Color.yellow * moodColorMultiplier, Color.green * moodColorMultiplier, fillAmount * moodColorMultiplier);
-            }
-            else if (fillAmount > 0.3f)
-            {
-                moodFillBar.color = Color.Lerp(Color.red, Color.yellow, fillAmount);
-                moodBackground.color = Color.Lerp(Color.red * moodColorMultiplier, Color.yellow * moodColorMultiplier, fillAmount * moodColorMultiplier);
-            }
-            else
-            {
-                moodFillBar.color = Color.Lerp(Color.red, Color.red, fillAmount);
-                moodBackground.color = Color.Lerp(Color.red * moodColorMultiplier, Color.red * moodColorMultiplier, fillAmount * moodColorMultiplier);
-            }
+            moodDividerBar.anchoredPosition += new Vector2(evt.moodChange, moodDividerBar.anchoredPosition.y);
+            moodDividerBar.anchoredPosition = new Vector2(Mathf.Clamp(moodDividerBar.anchoredPosition.x, moodDividerMinPosition, moodDividerMaxPosition), moodDividerBar.anchoredPosition.y);
         }
     }
 }
