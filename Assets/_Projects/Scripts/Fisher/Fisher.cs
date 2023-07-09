@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using GMTK.Core;
 using GMTK.EventSystem;
 
 namespace GMTK.Fisherman
@@ -61,6 +62,8 @@ namespace GMTK.Fisherman
             if (evt.isSuccessful)
             {
                 ChangeMood(evt.successAmount);
+                ScoreManager.Instance.scoreSO.AddScore(Mathf.FloorToInt(evt.successAmount));
+                ScoreManager.Instance.scoreSO.AddCaughtFish();
             }
             else
             {
