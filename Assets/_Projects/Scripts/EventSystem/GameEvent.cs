@@ -23,9 +23,8 @@ namespace GMTK.EventSystem
     public class OnHookedObject : GameEvent
     {
         public Transform hookedObject;
-        public float minBarSize;
-        public float barSizeMultiplier;
-        public float barIncreasedSpeed;
+        public float barIncreasedSpeedPerSecond;
+        public float maxGain;
     }
 
     public class OnFinishFishingGame : GameEvent

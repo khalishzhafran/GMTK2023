@@ -12,13 +12,11 @@ namespace GMTK.UI
         [SerializeField] private RectTransform failBar;
         [SerializeField] private RectTransform successBar;
 
-
-        // FIXME: Set this variable from the fish
-        [SerializeField] private float minBarSize = 10f;
-        [SerializeField] private float barIncreasedSpeed = 1f;
-
         private float maxBarSize = 200f;
-        [SerializeField] private float barSizeMultiplier = 10f;
+
+        private float maxGain;
+        private float barIncreaseMultiplier;
+        private float barIncreasedSpeedPerSecond;
 
         private OnFinishFishingGame onFinishFishingGameEvent = Events.OnFinishFishingGame;
 
@@ -29,14 +27,14 @@ namespace GMTK.UI
 
         private void Update()
         {
-            failBar.sizeDelta = new Vector2(failBar.sizeDelta.x, failBar.sizeDelta.y + barIncreasedSpeed * Time.deltaTime);
-            successBar.sizeDelta = new Vector2(successBar.sizeDelta.x, successBar.sizeDelta.y + barIncreasedSpeed * Time.deltaTime);
+            failBar.sizeDelta = new Vector2(failBar.sizeDelta.x, failBar.sizeDelta.y + barIncreasedSpeedPerSecond * barIncreaseMultiplier * Time.deltaTime);
+            successBar.sizeDelta = new Vector2(successBar.sizeDelta.x, successBar.sizeDelta.y + barIncreasedSpeedPerSecond * barIncreaseMultiplier * Time.deltaTime);
 
-            failBar.sizeDelta = new Vector2(failBar.sizeDelta.x, Mathf.Clamp(failBar.sizeDelta.y, minBarSize, maxBarSize));
-            successBar.sizeDelta = new Vector2(successBar.sizeDelta.x, Mathf.Clamp(successBar.sizeDelta.y, minBarSize, maxBarSize));
+            failBar.sizeDelta = new Vector2(failBar.sizeDelta.x, Mathf.Clamp(failBar.sizeDelta.y, 0f, maxBarSize));
+            successBar.sizeDelta = new Vector2(successBar.sizeDelta.x, Mathf.Clamp(successBar.sizeDelta.y, 0f, maxBarSize));
 
-            onFinishFishingGameEvent.successAmount = successBar.sizeDelta.y - (successBar.sizeDelta.y * barSizeMultiplier);
-            onFinishFishingGameEvent.failedAmount = failBar.sizeDelta.y - (failBar.sizeDelta.y * barSizeMultiplier);
+            onFinishFishingGameEvent.successAmount = successBar.sizeDelta.y / maxBarSize * maxGain;
+            onFinishFishingGameEvent.failedAmount = failBar.sizeDelta.y / maxBarSize * maxGain;
         }
 
         private void OnEnable()
@@ -53,9 +51,10 @@ namespace GMTK.UI
 
         private void OnHookedObject(OnHookedObject evt)
         {
-            minBarSize = evt.minBarSize;
-            barSizeMultiplier = evt.barSizeMultiplier;
-            barIncreasedSpeed = evt.barIncreasedSpeed;
+            barIncreasedSpeedPerSecond = evt.barIncreasedSpeedPerSecond;
+            maxGain = evt.maxGain;
+
+            barIncreaseMultiplier = maxBarSize / maxGain;
 
             ResetFillBars();
             StartCoroutine(ShowFishingBarCoroutine());
@@ -63,6 +62,7 @@ namespace GMTK.UI
 
         private void OnFinishFishingGame(OnFinishFishingGame evt)
         {
+            Debug.Log(successBar.sizeDelta.y / maxBarSize * maxGain);
             HideFishingBar();
         }
 
@@ -79,8 +79,8 @@ namespace GMTK.UI
 
         private void ResetFillBars()
         {
-            failBar.sizeDelta = new Vector2(failBar.sizeDelta.x, minBarSize);
-            successBar.sizeDelta = new Vector2(successBar.sizeDelta.x, minBarSize);
+            failBar.sizeDelta = new Vector2(failBar.sizeDelta.x, 0f);
+            successBar.sizeDelta = new Vector2(successBar.sizeDelta.x, 0f);
         }
     }
 }

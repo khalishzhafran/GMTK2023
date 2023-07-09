@@ -6,8 +6,7 @@ namespace GMTK
 {
     public class IkanTesting : MonoBehaviour
     {
-        public float minBarSize = 10f;
-        public float barIncreasedSpeed = 10f;
-        public float barSizeMultiplier = 10f;
+        public float barIncreasedSpeedPerSecond = 1f;
+        public float maxGain = 10f;
     }
 }

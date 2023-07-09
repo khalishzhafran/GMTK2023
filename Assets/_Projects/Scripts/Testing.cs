@@ -27,9 +27,8 @@ namespace GMTK
 
                     OnHookedObject evt = Events.OnHookedObject;
                     evt.hookedObject = hookedObjects[randomObject].transform;
-                    evt.minBarSize = hookedObjects[randomObject].minBarSize;
-                    evt.barIncreasedSpeed = hookedObjects[randomObject].barIncreasedSpeed;
-                    evt.barSizeMultiplier = hookedObjects[randomObject].barSizeMultiplier;
+                    evt.barIncreasedSpeedPerSecond = hookedObjects[randomObject].barIncreasedSpeedPerSecond;
+                    evt.maxGain = hookedObjects[randomObject].maxGain;
                     EventManager.Broadcast(evt);
                 }
                 else

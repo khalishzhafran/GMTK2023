@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 124520377}
   - component: {fileID: 124520379}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Spirited
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -381,9 +381,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bdf59bda1bf15c4898247877406b2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minBarSize: 20
-  barIncreasedSpeed: 20
-  barSizeMultiplier: 10
+  barIncreasedSpeedPerSecond: 3
+  maxGain: 15
 --- !u!1 &131418247
 GameObject:
   m_ObjectHideFlags: 3
@@ -491,7 +490,7 @@ GameObject:
   - component: {fileID: 156323346}
   - component: {fileID: 156323348}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Energetic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -576,9 +575,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bdf59bda1bf15c4898247877406b2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minBarSize: 10
-  barIncreasedSpeed: 10
-  barSizeMultiplier: 10
+  barIncreasedSpeedPerSecond: 2
+  maxGain: 10
 --- !u!1 &218894385
 GameObject:
   m_ObjectHideFlags: 0
@@ -1896,7 +1894,7 @@ GameObject:
   - component: {fileID: 1240852895}
   - component: {fileID: 1240852897}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: Nimble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1981,9 +1979,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bdf59bda1bf15c4898247877406b2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minBarSize: 5
-  barIncreasedSpeed: 5
-  barSizeMultiplier: 10
+  barIncreasedSpeedPerSecond: 1
+  maxGain: 5
 --- !u!1 &1420507737
 GameObject:
   m_ObjectHideFlags: 0
@@ -2236,9 +2233,6 @@ MonoBehaviour:
   fishingBar: {fileID: 680842218}
   failBar: {fileID: 550484612}
   successBar: {fileID: 1603577103}
-  minBarSize: 10
-  barIncreasedSpeed: 10
-  barSizeMultiplier: 10
 --- !u!1 &1476190480
 GameObject:
   m_ObjectHideFlags: 0
@@ -2460,7 +2454,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 36, y: 200}
+  m_SizeDelta: {x: 36, y: 10}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1603577104
 MonoBehaviour:
