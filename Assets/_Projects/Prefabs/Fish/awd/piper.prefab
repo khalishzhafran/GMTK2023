@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 22100000, guid: cf4fee9654688504ca5b068f33dc2b2a, type: 2}
     - target: {fileID: 5900421086144234404, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: patrolSpeed
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5900421086144234407, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_Name

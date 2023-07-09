@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 22100000, guid: 1af8cf5a184e9cc45a8a9402e5ebea2c, type: 2}
     - target: {fileID: 5900421086144234407, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_Name
-      value: ikan 3
+      value: sturgeon
       objectReference: {fileID: 0}
     - target: {fileID: 5900421086144234408, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_RootOrder
@@ -58,6 +58,18 @@ PrefabInstance:
     - target: {fileID: 5900421086144234408, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900421086144234410, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
+      propertyPath: m_Radius
+      value: 0.5344295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900421086144234410, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.6373233
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900421086144234410, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.018787026
       objectReference: {fileID: 0}
     - target: {fileID: 5900421086144234411, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_Color.b
