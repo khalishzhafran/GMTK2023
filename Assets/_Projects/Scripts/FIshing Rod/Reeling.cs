@@ -49,6 +49,8 @@ namespace GMTK
 
                 if (Vector2.Distance(transform.position, startingPos) < 0.1f)
                 {
+                    Emote.instance.Happy();
+
                     isReeling = false;
                     CameraSwitcher.SwitchCamera();
 
@@ -77,6 +79,8 @@ namespace GMTK
 
                 if (Vector2.Distance(transform.position, startingPos) < 0.1f)
                 {
+                    Emote.instance.Rage();
+
                     isReeling = false;
                     CameraSwitcher.SwitchCamera();
 
@@ -148,6 +152,7 @@ namespace GMTK
             {
                 if (fishPower > 50)
                 {
+                    Emote.instance.Rage();
                     CameraSwitcher.SwitchCamera();
 
                     OnFinishFishingGame evt = Events.OnFinishFishingGame;
