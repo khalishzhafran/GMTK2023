@@ -6,16 +6,28 @@ namespace GMTK
 {
     public class Thrower : MonoBehaviour
     {
+        public static Thrower instance;
         [SerializeField] private float throwForce = 10f;
         [SerializeField] private GameObject[] trashPrefabs;
         [SerializeField] private Transform throwPoint;
+        [SerializeField] Animator animator;
+        private void Awake()
+        {
+            instance = this;
+        }
 
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                ThrowTrash();
+                DoThrow();
             }
+        }
+
+        public void DoThrow()
+        {
+            if (Trash.trashCount < 5)
+                animator.SetTrigger("lempar");
         }
 
         public void ThrowTrash()
@@ -23,7 +35,8 @@ namespace GMTK
             int randomIndex = Random.Range(0, trashPrefabs.Length);
             GameObject trash = Instantiate(trashPrefabs[randomIndex], transform.position, Quaternion.identity);
             Vector2 direction = (throwPoint.position - transform.position).normalized;
-            trash.GetComponent<Rigidbody2D>().velocity = direction * throwForce;
+            float throwPower = Random.Range(5f, 20f);
+            trash.GetComponent<Rigidbody2D>().velocity = direction * throwPower;
         }
     }
 }
