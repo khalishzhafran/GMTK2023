@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 
 using GMTK.EventSystem;
+using GMTK.Core;
 
 namespace GMTK.UI
 {
@@ -11,6 +12,12 @@ namespace GMTK.UI
     {
         [SerializeField] private TextMeshProUGUI timeText;
         [SerializeField] private TextMeshProUGUI dayText;
+        [SerializeField] private DaySO day;
+
+        private void Start()
+        {
+            dayText.text = "Day " + day.currentDay.ToString();
+        }
 
         private void OnEnable()
         {
@@ -33,7 +40,7 @@ namespace GMTK.UI
 
         private void OnDayChanged(OnDayChanged evt)
         {
-            dayText.text = "Day\n" + evt.currentDay.ToString();
+            dayText.text = "Day " + evt.currentDay.ToString();
         }
     }
 }

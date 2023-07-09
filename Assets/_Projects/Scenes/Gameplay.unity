@@ -534,7 +534,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 100}
+  m_SizeDelta: {x: 16, y: 100}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &197673340
 MonoBehaviour:
@@ -564,7 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.31305623, g: 0.48547077, b: 0.990566, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -646,6 +646,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeText: {fileID: 1936312995}
   dayText: {fileID: 165632027}
+  day: {fileID: 11400000, guid: 80b08ac39d8e7a941ad7bc7178c05067, type: 2}
 --- !u!114 &209650846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -732,7 +733,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319070182}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.71, y: 6, z: 0}
+  m_LocalPosition: {x: -8.66, y: 6, z: 0}
   m_LocalScale: {x: 4.6351237, y: 0.46660888, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -999,82 +1000,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxStackMoodTimer: 2
---- !u!1 &553949901
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 553949902}
-  - component: {fileID: 553949904}
-  - component: {fileID: 553949903}
-  m_Layer: 0
-  m_Name: ProfilePicture
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &553949902
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553949901}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1895255749}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &553949903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553949901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &553949904
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553949901}
-  m_CullTransparentMesh: 1
 --- !u!1 &556304531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1920,7 +1845,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1895255749}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1947,17 +1872,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fisherman Name
+  m_text: Angler's Mood Bar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1ab7929d62ab84c4798fd472b13ea067, type: 2}
+  m_sharedMaterial: {fileID: -5217325922348684525, guid: 1ab7929d62ab84c4798fd472b13ea067, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4280635785
+  m_fontColor: {r: 0.5377358, g: 0.31573224, b: 0.1445799, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2571,7 +2496,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1188241568}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.02, y: 5.74, z: 0}
+  m_LocalPosition: {x: -9.03, y: 7.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3166,7 +3091,7 @@ MonoBehaviour:
   fishermanName: Alex
   fishermanProfile: {fileID: 0}
   currentMood: 50
-  decreaseMoodSpeed: 1
+  decreaseMoodSpeed: 0.5
   maxMood: 100
   minMood: 0
   satisfiedStartRange: 50
@@ -3733,8 +3658,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 47.2, y: -359}
-  m_SizeDelta: {x: 120, y: 323.2}
+  m_AnchoredPosition: {x: 199.2, y: -1256}
+  m_SizeDelta: {x: 260.25, y: 701}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1665423607
 MonoBehaviour:
@@ -3793,7 +3718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.123398006, g: 0.325341, b: 0.4433962, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3853,8 +3778,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000051437, y: 0}
-  m_SizeDelta: {x: 750.6, y: 161.6}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1438.43, y: 309.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1712546826
 MonoBehaviour:
@@ -3880,15 +3805,15 @@ MonoBehaviour:
 
     The angler will leave the area soon!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1ab7929d62ab84c4798fd472b13ea067, type: 2}
+  m_sharedMaterial: {fileID: -5217325922348684525, guid: 1ab7929d62ab84c4798fd472b13ea067, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3905,8 +3830,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4145,6 +4070,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 953264165}
     m_Modifications:
+    - target: {fileID: 7156882582216709320, guid: e2db5872e8e6cbf4d893020a97cd4c5c, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156882582216709320, guid: e2db5872e8e6cbf4d893020a97cd4c5c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f9ec903ca1da3474bab9e3120c68f868, type: 3}
     - target: {fileID: 7156882582216709321, guid: e2db5872e8e6cbf4d893020a97cd4c5c, type: 3}
       propertyPath: m_Name
       value: Music Manager
@@ -4523,7 +4456,6 @@ GameObject:
   - component: {fileID: 1895255753}
   - component: {fileID: 1895255752}
   - component: {fileID: 1895255751}
-  - component: {fileID: 1895255750}
   m_Layer: 0
   m_Name: ProfileCanvas
   m_TagString: Untagged
@@ -4543,7 +4475,6 @@ RectTransform:
   m_LocalScale: {x: 0.015, y: 0.015, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 553949902}
   - {fileID: 914545759}
   m_Father: {fileID: 1188241569}
   m_RootOrder: 0
@@ -4553,20 +4484,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.37, y: 0.15}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1895255750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895255748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71f399c7cbdd4044289e656e742a5590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fishermanProfile: {fileID: 553949903}
-  fishermanName: {fileID: 914545760}
 --- !u!114 &1895255751
 MonoBehaviour:
   m_ObjectHideFlags: 0

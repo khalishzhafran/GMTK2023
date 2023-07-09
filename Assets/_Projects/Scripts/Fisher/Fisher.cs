@@ -21,6 +21,15 @@ namespace GMTK.Fisherman
         public float satisfiedStartRange = 50f;
         public float satisfiedEndRange = 70f;
 
+
+        [Header("Generate value")]
+        private float minCurrentMood = 30;
+        private float maxCurrentMood = 70;
+        private float minSatisfiedStartRange = 50;
+        private float maxSatisfiedStartRange = 70;
+        private float minSatisfiedEndRange = 70;
+        private float maxSatisfiedEndRange = 90;
+
         private bool isIdle = true;
 
         private void Awake()
@@ -32,6 +41,10 @@ namespace GMTK.Fisherman
             }
 
             Instance = this;
+
+            currentMood = Random.Range(minCurrentMood, maxCurrentMood);
+            satisfiedStartRange = Random.Range(minSatisfiedStartRange, maxSatisfiedStartRange);
+            satisfiedEndRange = Random.Range(minSatisfiedEndRange, maxSatisfiedEndRange);
         }
 
 
@@ -71,17 +84,20 @@ namespace GMTK.Fisherman
                 if (!evt.isTrash)
                 {
                     ChangeMood(evt.successAmount);
+                    SoundManager.instance.PlaySFX(SoundManager.instance.soundEffectSO.MoodPointGained);
                     ScoreManager.Instance.scoreSO.AddCaughtFish();
                 }
                 else
                 {
                     ChangeMood(-evt.failedAmount);
+                    SoundManager.instance.PlaySFX(SoundManager.instance.soundEffectSO.MoodPointLost);
                     ScoreManager.Instance.scoreSO.AddCollectedTrash();
                 }
             }
             else
             {
                 ChangeMood(-evt.failedAmount);
+                SoundManager.instance.PlaySFX(SoundManager.instance.soundEffectSO.MoodPointLost);
                 ScoreManager.Instance.scoreSO.AddEscapedFish();
             }
         }

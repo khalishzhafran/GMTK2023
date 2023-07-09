@@ -176,6 +176,7 @@ namespace GMTK
             {
                 if (fishPower > 50)
                 {
+                    SoundManager.instance.PlaySFX(SoundManager.instance.soundEffectSO.ReelFailed);
                     Emote.instance.Rage();
                     CameraSwitcher.SwitchCamera();
 

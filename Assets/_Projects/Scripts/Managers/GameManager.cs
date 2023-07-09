@@ -15,7 +15,7 @@ namespace GMTK.Managers
 
         private void Start()
         {
-            ScoreManager.Instance.scoreSO.ResetScore();
+            // ScoreManager.Instance.scoreSO.ResetScore();
         }
 
         private void Update()

@@ -35,7 +35,7 @@ namespace GMTK
 
         public void ThrowTrash()
         {
-            SoundManager.instance.PlaySFX(throwClip);
+            SoundManager.instance.PlaySFX(SoundManager.instance.soundEffectSO.ThrowTrash);
             int randomIndex = Random.Range(0, trashPrefabs.Length);
             GameObject trash = Instantiate(trashPrefabs[randomIndex], transform.position, Quaternion.identity);
             Vector2 direction = (throwPoint.position - transform.position).normalized;

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebbdbe72003011548893008b13c2cb5d, type: 3}
   m_Name: Score
   m_EditorClassIdentifier: 
-  caughtFishCount: 2
-  escapedFishCount: 4
-  collectTrashCount: 5
-  currentPlayerMood: 50
-  satisfiedStartRange: 50
-  satisfiedEndRange: 75
+  caughtFishCount: 0
+  escapedFishCount: 0
+  collectTrashCount: 0
+  currentPlayerMood: 0
+  satisfiedStartRange: 0
+  satisfiedEndRange: 0

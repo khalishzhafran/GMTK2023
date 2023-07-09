@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 using GMTK.EventSystem;
 using GMTK.Fisherman;
+using GMTK.Managers;
 
 namespace GMTK.Core
 {
@@ -38,12 +40,18 @@ namespace GMTK.Core
                 currentTime = startingTime;
                 day.currentDay++;
 
-                OnDayChanged evt = Events.OnDayChanged;
-                evt.currentDay = day.currentDay;
-                evt.currentPlayerMood = Fisher.Instance.currentMood;
-                evt.satisfiedStartRange = Fisher.Instance.satisfiedStartRange;
-                evt.satisfiedEndRange = Fisher.Instance.satisfiedEndRange;
-                EventManager.Broadcast(evt);
+                // OnDayChanged evt = Events.OnDayChanged;
+                // evt.currentDay = day.currentDay;
+                // evt.currentPlayerMood = Fisher.Instance.currentMood;
+                // evt.satisfiedStartRange = Fisher.Instance.satisfiedStartRange;
+                // evt.satisfiedEndRange = Fisher.Instance.satisfiedEndRange;
+                // EventManager.Broadcast(evt);
+
+                ScoreManager.Instance.scoreSO.currentPlayerMood = Fisher.Instance.currentMood;
+                ScoreManager.Instance.scoreSO.satisfiedStartRange = Fisher.Instance.satisfiedStartRange;
+                ScoreManager.Instance.scoreSO.satisfiedEndRange = Fisher.Instance.satisfiedEndRange;
+
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 // You can trigger events here when a new day starts
             }
 

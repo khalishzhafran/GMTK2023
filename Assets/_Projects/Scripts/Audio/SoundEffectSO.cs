@@ -16,6 +16,7 @@ namespace GMTK
         public AudioClip AcceptButton;
         public AudioClip BackButton;
         public AudioClip MoodPointGained;
+        public AudioClip MoodPointLost;
         public AudioClip ThrowTrash;
         public AudioClip HookClicked;
         public AudioClip HookDrop;
