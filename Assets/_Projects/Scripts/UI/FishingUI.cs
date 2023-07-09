@@ -61,7 +61,7 @@ namespace GMTK.UI
 
         private void OnHookedObject(OnHookedObject evt)
         {
-            barIncreasedSpeedPerSecond = evt.barIncreasedSpeedPerSecond;
+            barIncreasedSpeedPerSecond = evt.moodGainSpeedPerSecond;
             maxGain = evt.maxGain;
 
             barIncreaseMultiplier = maxBarSize / maxGain;
@@ -72,7 +72,6 @@ namespace GMTK.UI
 
         private void OnFinishFishingGame(OnFinishFishingGame evt)
         {
-            Debug.Log("Called");
             HideBar();
         }
 
@@ -94,8 +93,8 @@ namespace GMTK.UI
         {
             if (fillAmount <= 0.5f)
             {
-                powerBarFill.color = Color.Lerp(Color.yellow, Color.green, fillAmount);
-                powerBarBackground.color = Color.Lerp(Color.yellow * powerColorMultiplier, Color.green * powerColorMultiplier, fillAmount * powerColorMultiplier);
+                powerBarFill.color = Color.Lerp(Color.green, Color.yellow, fillAmount);
+                powerBarBackground.color = Color.Lerp(Color.green * powerColorMultiplier, Color.yellow * powerColorMultiplier, fillAmount * powerColorMultiplier);
             }
             else if (fillAmount > 0.5f && fillAmount <= 0.7f)
             {
@@ -121,8 +120,8 @@ namespace GMTK.UI
             successBar.sizeDelta = new Vector2(successBar.sizeDelta.x, 0f);
 
             powerBarFill.fillAmount = 0f;
-            powerBarFill.color = Color.Lerp(Color.yellow, Color.green, powerBarFill.fillAmount);
-            powerBarBackground.color = Color.Lerp(Color.yellow * powerColorMultiplier, Color.green * powerColorMultiplier, powerBarFill.fillAmount * powerColorMultiplier);
+            powerBarFill.color = Color.Lerp(Color.green, Color.yellow, powerBarFill.fillAmount);
+            powerBarBackground.color = Color.Lerp(Color.green * powerColorMultiplier, Color.yellow * powerColorMultiplier, powerBarFill.fillAmount * powerColorMultiplier);
         }
     }
 }

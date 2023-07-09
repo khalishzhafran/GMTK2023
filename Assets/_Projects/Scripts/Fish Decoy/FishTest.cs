@@ -14,11 +14,11 @@ namespace GMTK
         public bool isCaught = false;
         private Rigidbody2D rb;
         public float speed = 1f;
-        public int MaxMood = 25;
-        public int moodGain = 1;
         public float fishPower = 1;
 
-        public float barIncreasedSpeedPerSecond = 1f;
+        [Space(10)]
+        [Header("Mood Gain")]
+        public float moodGainSpeedPerSecond = 1f;
         public float maxGain = 10f;
         void Awake()
         {
@@ -60,7 +60,7 @@ namespace GMTK
 
                 OnHookedObject evt = Events.OnHookedObject;
                 evt.hookedObject = transform;
-                evt.barIncreasedSpeedPerSecond = barIncreasedSpeedPerSecond;
+                evt.moodGainSpeedPerSecond = moodGainSpeedPerSecond;
                 evt.maxGain = maxGain;
                 EventManager.Broadcast(evt);
             }

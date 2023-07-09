@@ -23,7 +23,7 @@ namespace GMTK.EventSystem
     public class OnHookedObject : GameEvent
     {
         public Transform hookedObject;
-        public float barIncreasedSpeedPerSecond;
+        public float moodGainSpeedPerSecond;
         public float maxGain;
     }
 
