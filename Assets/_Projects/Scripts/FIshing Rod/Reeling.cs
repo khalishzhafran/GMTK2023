@@ -92,7 +92,7 @@ namespace GMTK
                     GetComponent<CircleCollider2D>().enabled = true;
                     rb.gravityScale = 3;
 
-                    Destroy(fishRb.gameObject, 0.1f);
+                    Destroy(trash.gameObject, 0.1f);
                 }
             }
             else if (isReeling && fishRb == null)
