@@ -28,5 +28,15 @@ namespace GMTK.Core
         {
             collectTrashCount++;
         }
+
+        public void ResetScore()
+        {
+            caughtFishCount = 0;
+            escapedFishCount = 0;
+            collectTrashCount = 0;
+            currentPlayerMood = 0f;
+            satisfiedStartRange = 0f;
+            satisfiedEndRange = 0f;
+        }
     }
 }

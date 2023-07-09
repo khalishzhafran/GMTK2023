@@ -21,6 +21,8 @@ namespace GMTK.UI
         [SerializeField] private float satisfiedStartPosition;
         [SerializeField] private float satisfiedWidthBar;
 
+        private float moodBarMultiplier = 6f;
+
         [SerializeField] private Button nextDayButton;
         [SerializeField] private Button mainMenuButton;
 
@@ -45,6 +47,11 @@ namespace GMTK.UI
 
             satisfiedStartPosition = ScoreManager.Instance.scoreSO.satisfiedStartRange;
             satisfiedWidthBar = ScoreManager.Instance.scoreSO.satisfiedEndRange - ScoreManager.Instance.scoreSO.satisfiedStartRange;
+
+            moodBalanceBar.anchoredPosition = new Vector2(satisfiedStartPosition * moodBarMultiplier, moodBalanceBar.anchoredPosition.y);
+            moodBalanceBar.sizeDelta = new Vector2(satisfiedWidthBar * moodBarMultiplier, moodBalanceBar.sizeDelta.y);
+
+            moodDividerBar.anchoredPosition = new Vector2(ScoreManager.Instance.scoreSO.currentPlayerMood * moodBarMultiplier, moodDividerBar.anchoredPosition.y);
         }
     }
 }

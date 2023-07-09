@@ -13,6 +13,11 @@ namespace GMTK.Managers
 
         private float currentStackMoodTimer = 0f;
 
+        private void Start()
+        {
+            ScoreManager.Instance.scoreSO.ResetScore();
+        }
+
         private void Update()
         {
             if (Fisher.Instance.currentMood == Fisher.Instance.minMood || Fisher.Instance.currentMood == Fisher.Instance.maxMood)
