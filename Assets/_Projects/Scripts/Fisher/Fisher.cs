@@ -15,8 +15,8 @@ namespace GMTK.Fisherman
         public Sprite fishermanProfile;
         public float currentMood;
         [SerializeField] private float decreaseMoodSpeed = 1f;
-        [SerializeField] private float maxMood = 100f;
-        [SerializeField] private float minMood = 0f;
+        public float maxMood = 100f;
+        public float minMood = 0f;
 
         public float satisfiedStartRange = 50f;
         public float satisfiedEndRange = 70f;

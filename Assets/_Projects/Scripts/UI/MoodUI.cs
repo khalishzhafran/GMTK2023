@@ -13,6 +13,9 @@ namespace GMTK.UI
         [SerializeField] private RectTransform moodBalanceBar;
         [SerializeField] private RectTransform moodDividerBar;
         [SerializeField] private FloatingText floatingText;
+        [SerializeField] private CautionPanel moodWarning;
+
+        [SerializeField] private float warningPercentage = 10;
 
         private float currentPlayerMood;
 
@@ -51,6 +54,15 @@ namespace GMTK.UI
         {
             moodDividerBar.anchoredPosition += new Vector2(evt.moodChange, moodDividerBar.anchoredPosition.y);
             moodDividerBar.anchoredPosition = new Vector2(Mathf.Clamp(moodDividerBar.anchoredPosition.x, 0, 100), moodDividerBar.anchoredPosition.y);
+
+            if (fisher.currentMood <= fisher.minMood + (fisher.maxMood * warningPercentage / 100) || fisher.currentMood >= fisher.maxMood - (fisher.maxMood * warningPercentage / 100))
+            {
+                moodWarning.Show();
+            }
+            else
+            {
+                moodWarning.Hide();
+            }
         }
 
         private void OnFinishFishingGame(OnFinishFishingGame evt)
