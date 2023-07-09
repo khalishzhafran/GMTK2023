@@ -12,6 +12,7 @@ namespace GMTK.Fisherman
         public static Fisher Instance { get; private set; }
 
         public string fishermanName;
+        public Sprite fishermanProfile;
         public float currentMood;
         [SerializeField] private float decreaseMoodSpeed = 1f;
         [SerializeField] private float maxMood = 100f;

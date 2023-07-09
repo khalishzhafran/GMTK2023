@@ -179,7 +179,6 @@ namespace GMTK
                         if (fishRb.velocity.x > 0f || fishRb.velocity.y < 0f)
                         {
                             fishPower += fish.fishPower;
-                            Debug.Log(fishPower);
                             yield return new WaitForSeconds(0.01f);
                         }
                         else
