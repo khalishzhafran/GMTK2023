@@ -48,3 +48,4 @@ MonoBehaviour:
   sfxSlider: {fileID: 0}
   musicVolume: 1
   sfxVolume: 1
+  soundEffectSO: {fileID: 11400000, guid: 867d74a1fe1d5f849b01cbb2eac6d6f0, type: 2}

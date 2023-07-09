@@ -12,6 +12,9 @@ namespace GMTK
         public static SoundManager instance;
         public float musicVolume = 1f;
         public float sfxVolume = 1f;
+
+        public SoundEffectSO soundEffectSO;
+
         void Awake()
         {
             instance = this;

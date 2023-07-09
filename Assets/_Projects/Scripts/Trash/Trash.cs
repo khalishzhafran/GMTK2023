@@ -46,7 +46,7 @@ namespace GMTK
         {
             if (other.gameObject.tag == "Hook" && !isCaught)
             {
-                SoundManager.instance.PlaySFX(caughtClip);
+                SoundManager.instance.PlaySFX(SoundManager.instance.soundEffectSO.ReelIn);
                 isCaught = true;
 
                 other.gameObject.GetComponent<Reeling>().GetTrash(this);

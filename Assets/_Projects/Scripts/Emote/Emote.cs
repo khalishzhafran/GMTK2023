@@ -20,14 +20,14 @@ namespace GMTK
         public void Rage()
         {
             int index = Random.Range(0, RageEmotes.Length);
-            SoundManager.instance.PlaySFX(rageClip);
+            SoundManager.instance.PlaySFX(SoundManager.instance.soundEffectSO.AnglerReactionVarieties_Mad);
             Destroy(Instantiate(RageEmotes[index], transform.position, Quaternion.identity), emoteDuration);
         }
 
         public void Happy()
         {
             int index = Random.Range(0, HappyEmotes.Length);
-            SoundManager.instance.PlaySFX(happyClip);
+            SoundManager.instance.PlaySFX(SoundManager.instance.soundEffectSO.AnglerReactionVarieties_Happy);
             Destroy(Instantiate(HappyEmotes[index], transform.position, Quaternion.identity), emoteDuration);
         }
     }

@@ -16,8 +16,11 @@ MonoBehaviour:
   ReelInMiddle: {fileID: 8300000, guid: 78c4de9acd7594440ab17ce4e042d960, type: 3}
   ReelInEnd: {fileID: 8300000, guid: 854dce2c09490534eb0bb550b993affc, type: 3}
   ReelFailed: {fileID: 8300000, guid: 0c86bc892fb15f841908839156b2bc46, type: 3}
-  AnglerReactionVarieties_Mad: {fileID: 0}
-  AnglerReactionVarieties_Happy: {fileID: 0}
+  AnglerReactionVarieties_Mad: {fileID: 8300000, guid: b874602c133654e4f854c38e9a78c051, type: 3}
+  AnglerReactionVarieties_Happy: {fileID: 8300000, guid: b874602c133654e4f854c38e9a78c051, type: 3}
   AcceptButton: {fileID: 8300000, guid: a1211d1721082dd4ea3b0e9dabe5d4fb, type: 3}
   BackButton: {fileID: 8300000, guid: a1211d1721082dd4ea3b0e9dabe5d4fb, type: 3}
-  MoodPointGained: {fileID: 0}
+  MoodPointGained: {fileID: 8300000, guid: b874602c133654e4f854c38e9a78c051, type: 3}
+  ThrowTrash: {fileID: 8300000, guid: b874602c133654e4f854c38e9a78c051, type: 3}
+  HookClicked: {fileID: 8300000, guid: b874602c133654e4f854c38e9a78c051, type: 3}
+  HookDrop: {fileID: 8300000, guid: b874602c133654e4f854c38e9a78c051, type: 3}

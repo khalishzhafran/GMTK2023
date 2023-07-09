@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GMTK.Audio
+namespace GMTK
 {
     [CreateAssetMenu(menuName = "GMTK/Audio/SoundEffectSO")]
     public class SoundEffectSO : ScriptableObject
@@ -16,5 +16,8 @@ namespace GMTK.Audio
         public AudioClip AcceptButton;
         public AudioClip BackButton;
         public AudioClip MoodPointGained;
+        public AudioClip ThrowTrash;
+        public AudioClip HookClicked;
+        public AudioClip HookDrop;
     }
 }
