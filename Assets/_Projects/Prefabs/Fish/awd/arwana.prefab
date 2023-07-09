@@ -7,13 +7,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3647556793649581045, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 728fa9b13337e04439610aa9c7d11afe, type: 2}
     - target: {fileID: 5900421086144234404, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: patrolSpeed
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5900421086144234407, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_Name
-      value: ikan 6
+      value: arwana
       objectReference: {fileID: 0}
     - target: {fileID: 5900421086144234408, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_RootOrder
@@ -59,17 +63,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5900421086144234410, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
+      propertyPath: m_Radius
+      value: 0.43187857
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900421086144234410, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.5724397
+      objectReference: {fileID: 0}
     - target: {fileID: 5900421086144234411, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5900421086144234411, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5900421086144234411, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_Color.r
-      value: 0.6855669
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}

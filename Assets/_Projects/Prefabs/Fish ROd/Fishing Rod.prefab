@@ -4951,6 +4951,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20f2430e977bc2499f7077c004b59ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splashClip: {fileID: 8300000, guid: da701c47a779ea541aba52c2cce859ed, type: 3}
+  dragClip: {fileID: 0}
   wall: {fileID: 5966826339976583605}
   trigger: {fileID: 427500476}
 --- !u!114 &5966826339976583602

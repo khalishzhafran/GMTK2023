@@ -36,6 +36,7 @@ namespace GMTK
 
         public void PlaySFX(AudioClip clip)
         {
+            if (clip == null) return;
             AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position, sfxVolume);
         }
     }

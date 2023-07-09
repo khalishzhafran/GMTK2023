@@ -11,6 +11,7 @@ namespace GMTK
 {
     public class FishTest : MonoBehaviour
     {
+        [SerializeField] AudioClip caughtClip;
         public static int fishCount = 0;
         public bool isCaught = false;
         private bool inWater = true;
@@ -97,6 +98,7 @@ namespace GMTK
         {
             if (other.gameObject.tag == "Hook" && !isCaught)
             {
+                SoundManager.instance.PlaySFX(caughtClip);
                 isCaught = true;
 
                 other.gameObject.GetComponent<Reeling>().GetFish(rb);

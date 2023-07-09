@@ -6,6 +6,8 @@ namespace GMTK
 {
     public class Hook : MonoBehaviour
     {
+        [SerializeField] AudioClip splashClip;
+        [SerializeField] AudioClip dragClip;
         [SerializeField] private CircleCollider2D wall;
         [SerializeField] private CircleCollider2D trigger;
         private bool isSelected = false;
@@ -29,6 +31,8 @@ namespace GMTK
         {
             isSelected = true;
 
+            SoundManager.instance.PlaySFX(dragClip);
+
             ColliderCOntrol(false);
         }
 
@@ -46,6 +50,8 @@ namespace GMTK
         {
             if (inWater)
             {
+
+                SoundManager.instance.PlaySFX(splashClip);
 
                 isSelected = false;
                 PositionBoundaries();
@@ -78,6 +84,7 @@ namespace GMTK
         {
             if (collision.gameObject.tag == "Water")
             {
+                SoundManager.instance.PlaySFX(splashClip);
                 rb.gravityScale = 0.5f;
                 rb.velocity = Vector2.zero;
                 inWater = true;
