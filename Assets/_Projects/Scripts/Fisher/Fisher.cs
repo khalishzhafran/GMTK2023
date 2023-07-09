@@ -2,63 +2,69 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using GMTK.Core;
+using GMTK.Managers;
 using GMTK.EventSystem;
 
 namespace GMTK.Fisherman
 {
     public class Fisher : MonoBehaviour
     {
+        public static Fisher Instance { get; private set; }
+
+        public string fishermanName;
         public float currentMood;
+        [SerializeField] private float decreaseMoodSpeed = 1f;
         [SerializeField] private float maxMood = 100f;
         [SerializeField] private float minMood = 0f;
 
         public float satisfiedStartRange = 50f;
         public float satisfiedEndRange = 70f;
 
+        private bool isIdle = true;
+
+        private void Awake()
+        {
+            if (Instance != null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+        }
+
+
 
         private void OnEnable()
         {
             EventManager.AddListener<OnFinishFishingGame>(OnFinishFishingGame);
+            EventManager.AddListener<OnHookedObject>(OnHookedObject);
         }
+
+
 
         private void OnDisable()
         {
             EventManager.RemoveListener<OnFinishFishingGame>(OnFinishFishingGame);
+            EventManager.RemoveListener<OnHookedObject>(OnHookedObject);
         }
 
 
 
         private void Update()
         {
-            // Dev Only
-            TestingMood();
-        }
-
-
-        #region Dev Only
-        private void OnGUI()
-        {
-            GUI.Label(new Rect(10, 10, 100, 20), "Mood: " + currentMood);
-        }
-
-
-
-        private void TestingMood()
-        {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (isIdle)
             {
-                ChangeMood(10f);
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                ChangeMood(-10f);
+                ChangeMood(-decreaseMoodSpeed * Time.deltaTime);
             }
         }
-        #endregion
+
+
 
         private void OnFinishFishingGame(OnFinishFishingGame evt)
         {
+            isIdle = true;
+
             if (evt.isSuccessful)
             {
                 if (!evt.isTrash)
@@ -78,6 +84,13 @@ namespace GMTK.Fisherman
             {
                 ChangeMood(-evt.failedAmount);
             }
+        }
+
+
+
+        private void OnHookedObject(OnHookedObject evt)
+        {
+            isIdle = false;
         }
 
 

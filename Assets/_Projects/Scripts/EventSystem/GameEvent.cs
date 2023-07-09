@@ -12,6 +12,9 @@ namespace GMTK.EventSystem
     public class OnDayChanged : GameEvent
     {
         public int currentDay;
+        public float currentPlayerMood;
+        public float satisfiedStartRange;
+        public float satisfiedEndRange;
     }
 
     public class OnTimeChanged : GameEvent
