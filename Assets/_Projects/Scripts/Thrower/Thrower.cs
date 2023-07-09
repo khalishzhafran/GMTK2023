@@ -11,6 +11,7 @@ namespace GMTK
         [SerializeField] private GameObject[] trashPrefabs;
         [SerializeField] private Transform throwPoint;
         [SerializeField] Animator animator;
+        bool canThrow = true;
         private void Awake()
         {
             instance = this;
@@ -18,8 +19,9 @@ namespace GMTK
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && canThrow)
             {
+                canThrow = false;
                 DoThrow();
             }
         }
@@ -37,6 +39,7 @@ namespace GMTK
             Vector2 direction = (throwPoint.position - transform.position).normalized;
             float throwPower = Random.Range(5f, 20f);
             trash.GetComponent<Rigidbody2D>().velocity = direction * throwPower;
+            canThrow = true;
         }
     }
 }

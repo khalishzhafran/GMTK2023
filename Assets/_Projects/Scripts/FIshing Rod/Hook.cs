@@ -56,21 +56,21 @@ namespace GMTK
 
         private void PositionBoundaries()
         {
-            if (transform.position.x < -8f)
+            if (transform.position.x < -12f)
             {
-                transform.position = new Vector3(-8f, transform.position.y, transform.position.z);
+                transform.position = new Vector3(-12f, transform.position.y, transform.position.z);
             }
-            else if (transform.position.x > 8.5f)
+            else if (transform.position.x > 12f)
             {
-                transform.position = new Vector3(8.5f, transform.position.y, transform.position.z);
+                transform.position = new Vector3(12f, transform.position.y, transform.position.z);
             }
-            if (transform.position.y < -4.5f)
+            if (transform.position.y < -7f)
             {
-                transform.position = new Vector3(transform.position.x, -4.5f, transform.position.z);
+                transform.position = new Vector3(transform.position.x, -7f, transform.position.z);
             }
-            else if (transform.position.y > 2f)
+            else if (transform.position.y > -2f)
             {
-                transform.position = new Vector3(transform.position.x, 2f, transform.position.z);
+                transform.position = new Vector3(transform.position.x, -2f, transform.position.z);
             }
         }
 

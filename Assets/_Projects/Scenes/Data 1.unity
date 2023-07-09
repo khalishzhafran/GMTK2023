@@ -454,7 +454,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 516522551}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.43, y: 1.72, z: 0}
+  m_LocalPosition: {x: 0.03, y: 2.0629947, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -475,8 +475,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emoteDuration: 1
   RageEmotes:
-  - {fileID: 990047139241995660, guid: 09c0222440ce1484e9c54fdb51da994c, type: 3}
-  HappyEmotes: []
+  - {fileID: 1111004047004014228, guid: d794798b5fcd3b04f9ba7bcb1af6a16e, type: 3}
+  - {fileID: 7965821424836207423, guid: 566df2a1c9a96ef43920e504f00a7604, type: 3}
+  - {fileID: 3515872343916525958, guid: b71f19ac18fc73f4dbdabedfe16d979f, type: 3}
+  - {fileID: 2083492430827514165, guid: 908c84e79975985428d0d4e817cdd3f8, type: 3}
+  HappyEmotes:
+  - {fileID: 2131497501710948526, guid: 77babf5302e88b84b924d679c4b21345, type: 3}
+  - {fileID: 8908626557547107364, guid: 55d93f3d21a17d249aa58cac3abfadfa, type: 3}
 --- !u!1 &520301777
 GameObject:
   m_ObjectHideFlags: 0
