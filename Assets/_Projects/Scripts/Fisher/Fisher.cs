@@ -13,11 +13,14 @@ namespace GMTK.Fisherman
 
         public string fishermanName;
         public float currentMood;
+        [SerializeField] private float decreaseMoodSpeed = 1f;
         [SerializeField] private float maxMood = 100f;
         [SerializeField] private float minMood = 0f;
 
         public float satisfiedStartRange = 50f;
         public float satisfiedEndRange = 70f;
+
+        private bool isIdle = true;
 
         private void Awake()
         {
@@ -35,6 +38,7 @@ namespace GMTK.Fisherman
         private void OnEnable()
         {
             EventManager.AddListener<OnFinishFishingGame>(OnFinishFishingGame);
+            EventManager.AddListener<OnHookedObject>(OnHookedObject);
         }
 
 
@@ -42,12 +46,25 @@ namespace GMTK.Fisherman
         private void OnDisable()
         {
             EventManager.RemoveListener<OnFinishFishingGame>(OnFinishFishingGame);
+            EventManager.RemoveListener<OnHookedObject>(OnHookedObject);
+        }
+
+
+
+        private void Update()
+        {
+            if (isIdle)
+            {
+                ChangeMood(-decreaseMoodSpeed * Time.deltaTime);
+            }
         }
 
 
 
         private void OnFinishFishingGame(OnFinishFishingGame evt)
         {
+            isIdle = true;
+
             if (evt.isSuccessful)
             {
                 if (!evt.isTrash)
@@ -67,6 +84,13 @@ namespace GMTK.Fisherman
             {
                 ChangeMood(-evt.failedAmount);
             }
+        }
+
+
+
+        private void OnHookedObject(OnHookedObject evt)
+        {
+            isIdle = false;
         }
 
 

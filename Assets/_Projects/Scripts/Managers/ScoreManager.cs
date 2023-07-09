@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 using GMTK.Core;
 using GMTK.EventSystem;
@@ -39,6 +40,8 @@ namespace GMTK.Managers
             scoreSO.currentPlayerMood = evt.currentPlayerMood;
             scoreSO.satisfiedStartRange = evt.satisfiedStartRange;
             scoreSO.satisfiedEndRange = evt.satisfiedEndRange;
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

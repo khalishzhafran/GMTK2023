@@ -10,11 +10,11 @@ namespace GMTK.Core
     public class GameTime : MonoBehaviour
     {
         [SerializeField] private float startHour = 8f; // The hour the game starts at
-        [SerializeField] private float minutesPerSecond = 60f; // How many in-game minutes pass per real-time second
+        [SerializeField] private float secondsPerMinute = 60f; // How many in-game minutes pass per real-time second
         [SerializeField] private float minutesFormatMultiplier = 10f; // How many in-game minutes pass per real-time second
-        [SerializeField] private float hoursPerMinute = 60f; // How many in-game hours pass per in-game minute
+        [SerializeField] private float minusPerHour = 60f; // How many in-game hours pass per in-game minute
         [SerializeField] private float hoursFormatMultiplier = 10f; // How many in-game hours pass per in-game minute
-        [SerializeField] private float daysPerHour = 24f; // How many in-game days pass per in-game hour
+        [SerializeField] private float HoursPerDay = 24f; // How many in-game days pass per in-game hour
         [SerializeField] private DaySO day;
         private float currentTime = 0f;
         private float startingTime; // The time the game starts at
@@ -22,10 +22,10 @@ namespace GMTK.Core
 
         private void Start()
         {
-            dayDuration = hoursPerMinute * minutesPerSecond * daysPerHour;
+            dayDuration = minusPerHour * secondsPerMinute * HoursPerDay;
 
             // Set the time to the start hour
-            startingTime = startHour * hoursPerMinute * minutesPerSecond;
+            startingTime = startHour * minusPerHour * secondsPerMinute;
             currentTime = startingTime;
         }
 
@@ -48,8 +48,8 @@ namespace GMTK.Core
             }
 
             // Format the time as hours and minutes
-            int hours = Mathf.FloorToInt(currentTime / (hoursPerMinute * minutesPerSecond)) * Mathf.FloorToInt(hoursFormatMultiplier);
-            int minutes = Mathf.FloorToInt((currentTime % (hoursPerMinute * minutesPerSecond)) / minutesPerSecond) * Mathf.FloorToInt(minutesFormatMultiplier);
+            int hours = Mathf.FloorToInt(currentTime / (minusPerHour * secondsPerMinute)) * Mathf.FloorToInt(hoursFormatMultiplier);
+            int minutes = Mathf.FloorToInt((currentTime % (minusPerHour * secondsPerMinute)) / secondsPerMinute) * Mathf.FloorToInt(minutesFormatMultiplier);
 
             OnTimeChanged timeChangedEvt = Events.OnTimeChanged;
             timeChangedEvt.hours = hours;
