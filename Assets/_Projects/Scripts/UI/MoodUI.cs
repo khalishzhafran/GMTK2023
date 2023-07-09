@@ -57,11 +57,11 @@ namespace GMTK.UI
         {
             if (evt.isSuccessful && !evt.isTrash)
             {
-                floatingText.ShowText(Mathf.FloorToInt(evt.successAmount).ToString());
+                floatingText.ShowText($"+{Mathf.FloorToInt(evt.successAmount)}");
             }
             else
             {
-                floatingText.ShowText(((Mathf.FloorToInt(-evt.failedAmount))).ToString());
+                floatingText.ShowText($"-{Mathf.FloorToInt(evt.failedAmount)}");
             }
         }
     }

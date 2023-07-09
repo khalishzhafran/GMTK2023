@@ -9,23 +9,18 @@ namespace GMTK.Misc
     {
         [SerializeField] private float textFadeSpeed = 1f;
         private TextMeshProUGUI floatingText;
+        private Animator animator;
 
         private void Awake()
         {
             floatingText = GetComponent<TextMeshProUGUI>();
+            animator = GetComponent<Animator>();
         }
 
         public void ShowText(string text)
         {
             SetText(text);
-            StartCoroutine(ShowTextCoroutine());
-        }
-
-        private IEnumerator ShowTextCoroutine()
-        {
             Show();
-            yield return new WaitForSeconds(textFadeSpeed);
-            Hide();
         }
 
         private void SetText(string newText)
@@ -35,12 +30,12 @@ namespace GMTK.Misc
 
         private void Show()
         {
-            floatingText.enabled = true;
+            animator.SetBool("Show", true);
         }
 
         private void Hide()
         {
-            floatingText.enabled = false;
+            animator.SetBool("Show", false);
         }
     }
 }
