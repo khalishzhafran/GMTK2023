@@ -61,9 +61,18 @@ namespace GMTK.Fisherman
         {
             if (evt.isSuccessful)
             {
-                ChangeMood(evt.successAmount);
-                ScoreManager.Instance.scoreSO.AddScore(Mathf.FloorToInt(evt.successAmount));
-                ScoreManager.Instance.scoreSO.AddCaughtFish();
+                if (!evt.isTrash)
+                {
+                    ChangeMood(evt.successAmount);
+                    ScoreManager.Instance.scoreSO.AddScore(Mathf.FloorToInt(evt.successAmount));
+                    ScoreManager.Instance.scoreSO.AddCaughtFish();
+                }
+                else
+                {
+                    ChangeMood(-evt.failedAmount);
+                    ScoreManager.Instance.scoreSO.AddScore(Mathf.FloorToInt(-evt.failedAmount));
+                    ScoreManager.Instance.scoreSO.AddCaughtTrash();
+                }
             }
             else
             {

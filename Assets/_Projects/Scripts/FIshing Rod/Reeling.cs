@@ -76,14 +76,13 @@ namespace GMTK
                 rb.velocity = hookPower;
                 hook.enabled = false;
 
-                Debug.Log("Trash");
-
                 if (Vector2.Distance(transform.position, startingPos) < 0.1f)
                 {
                     isReeling = false;
                     CameraSwitcher.SwitchCamera();
 
                     OnFinishFishingGame evt = Events.OnFinishFishingGame;
+                    evt.isTrash = true;
                     evt.isSuccessful = true;
                     EventManager.Broadcast(evt);
 

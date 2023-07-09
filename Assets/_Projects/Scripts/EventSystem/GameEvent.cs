@@ -29,6 +29,7 @@ namespace GMTK.EventSystem
 
     public class OnFinishFishingGame : GameEvent
     {
+        public bool isTrash;
         public bool isSuccessful;
         public float successAmount;
         public float failedAmount;
