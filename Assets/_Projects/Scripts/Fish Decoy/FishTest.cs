@@ -7,9 +7,11 @@ namespace GMTK
     public class FishTest : MonoBehaviour
     {
         private Fisher.Fisher fisher;
-        private bool isCaught = false;
+        public bool isCaught = false;
         private Rigidbody2D rb;
         public float speed = 1f;
+        public int MaxMood = 25;
+        public int moodGain = 1;
         public float fishPower = 1;
         void Awake()
         {

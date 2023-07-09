@@ -23,6 +23,7 @@ namespace GMTK
         {
             isSelected = true;
             col.enabled = false;
+            Debug.Log("Mouse Down");
         }
 
         private void OnMouseDrag()
