@@ -72,7 +72,7 @@ namespace GMTK
         {
             if (collision.gameObject.tag == "Water")
             {
-                rb.gravityScale = 0.01f;
+                rb.gravityScale = 0.5f;
                 rb.velocity = Vector2.zero;
                 inWater = true;
             }

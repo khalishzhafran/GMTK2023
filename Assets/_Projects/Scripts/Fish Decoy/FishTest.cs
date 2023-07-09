@@ -12,7 +12,10 @@ namespace GMTK
     public class FishTest : MonoBehaviour
     {
         public bool isCaught = false;
+        private bool inWater = true;
         private Rigidbody2D rb;
+        public float patrolSpeed = 1f;
+        public float direction = 1f;
         public float speed = 1f;
         public float fishPower = 1;
 
@@ -30,11 +33,11 @@ namespace GMTK
         {
             Moving();
             RotateToDirection();
+            Patrol();
         }
 
         private void RotateToDirection()
         {
-            //rotate to velocity direction
             if (rb.velocity != Vector2.zero)
             {
                 float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
@@ -47,11 +50,25 @@ namespace GMTK
             if (isCaught)
             {
                 transform.position = transform.parent.position;
+                if (inWater)
+                {
+                    Vector2 horizontal = Input.GetAxis("Horizontal") * Vector2.right * speed;
+                    Vector2 vertical = Input.GetAxis("Vertical") * Vector2.up * speed;
 
-                Vector2 horizontal = Input.GetAxis("Horizontal") * Vector2.right * speed;
-                Vector2 vertical = Input.GetAxis("Vertical") * Vector2.up * speed;
+                    rb.velocity = horizontal + vertical;
+                }
+                else
+                {
+                    rb.velocity = Vector2.zero;
+                }
+            }
+        }
 
-                rb.velocity = horizontal + vertical;
+        private void Patrol()
+        {
+            if (!isCaught && inWater)
+            {
+                rb.velocity = Vector2.right * direction * patrolSpeed;
             }
         }
 
@@ -73,6 +90,11 @@ namespace GMTK
                 evt.moodGainSpeedPerSecond = moodGainSpeedPerSecond;
                 evt.maxGain = maxGain;
                 EventManager.Broadcast(evt);
+            }
+
+            if (other.gameObject.tag == "Water")
+            {
+                inWater = false;
             }
         }
     }
