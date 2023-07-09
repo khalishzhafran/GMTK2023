@@ -12,12 +12,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22100000, guid: a4388e4da5e2cfd4cad18543c4bbf2d6, type: 2}
     - target: {fileID: 5900421086144234404, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
+      propertyPath: speed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900421086144234404, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
+      propertyPath: fishPower
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900421086144234404, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: patrolSpeed
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5900421086144234407, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_Name
-      value: ikan 4
+      value: redfin
       objectReference: {fileID: 0}
     - target: {fileID: 5900421086144234408, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_RootOrder
@@ -62,6 +70,18 @@ PrefabInstance:
     - target: {fileID: 5900421086144234408, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900421086144234410, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
+      propertyPath: m_Radius
+      value: 0.15949352
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900421086144234410, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.026788607
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900421086144234410, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.02766116
       objectReference: {fileID: 0}
     - target: {fileID: 5900421086144234411, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_Color.b

@@ -12,8 +12,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22100000, guid: 9162fa4be7caf274d9622293b59e6ca0, type: 2}
     - target: {fileID: 5900421086144234404, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
-      propertyPath: patrolSpeed
+      propertyPath: speed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900421086144234404, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
+      propertyPath: patrolSpeed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5900421086144234407, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_Name

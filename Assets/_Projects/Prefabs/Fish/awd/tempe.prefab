@@ -12,12 +12,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22100000, guid: b8c4cbb9c143bb44c819a426b7f3066f, type: 2}
     - target: {fileID: 5900421086144234404, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
+      propertyPath: fishPower
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900421086144234404, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: patrolSpeed
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5900421086144234407, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_Name
-      value: ikan 2
+      value: tempe
       objectReference: {fileID: 0}
     - target: {fileID: 5900421086144234408, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_RootOrder
