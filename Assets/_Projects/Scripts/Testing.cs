@@ -13,7 +13,7 @@ namespace GMTK
         [SerializeField] private CinemachineVirtualCamera defaultCamera;
         [SerializeField] private CinemachineVirtualCamera secondCamera;
 
-        [SerializeField] private List<Transform> hookedObjects;
+        [SerializeField] private List<IkanTesting> hookedObjects;
 
         private void Update()
         {
@@ -26,7 +26,10 @@ namespace GMTK
                     int randomObject = Random.Range(0, hookedObjects.Count);
 
                     OnHookedObject evt = Events.OnHookedObject;
-                    evt.hookedObject = hookedObjects[randomObject];
+                    evt.hookedObject = hookedObjects[randomObject].transform;
+                    evt.minBarSize = hookedObjects[randomObject].minBarSize;
+                    evt.barIncreasedSpeed = hookedObjects[randomObject].barIncreasedSpeed;
+                    evt.barSizeMultiplier = hookedObjects[randomObject].barSizeMultiplier;
                     EventManager.Broadcast(evt);
                 }
                 else
