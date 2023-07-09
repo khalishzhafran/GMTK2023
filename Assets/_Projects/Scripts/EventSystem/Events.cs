@@ -7,5 +7,6 @@ namespace GMTK.EventSystem
         public static OnTimeChanged OnTimeChanged = new OnTimeChanged();
         public static OnHookedObject OnHookedObject = new OnHookedObject();
         public static OnFinishFishingGame OnFinishFishingGame = new OnFinishFishingGame();
+        public static OnReeling OnReeling = new OnReeling();
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using GMTK.Fisherman;
+using GMTK.EventSystem;
+using GMTK.Cameras;
 
 namespace GMTK
 {
@@ -15,6 +17,9 @@ namespace GMTK
         public int MaxMood = 25;
         public int moodGain = 1;
         public float fishPower = 1;
+
+        public float barIncreasedSpeedPerSecond = 1f;
+        public float maxGain = 10f;
         void Awake()
         {
             fisher = FindObjectOfType<Fisher>();
@@ -42,18 +47,22 @@ namespace GMTK
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.tag == "Hook")
+            if (other.gameObject.tag == "Hook" && !isCaught)
             {
                 isCaught = true;
 
-                fisher.ChangeMood(10f);
-
                 other.gameObject.GetComponent<Reeling>().GetFish(rb);
-
 
                 transform.parent = other.gameObject.transform;
                 transform.position = transform.parent.position;
 
+                CameraSwitcher.SwitchCamera();
+
+                OnHookedObject evt = Events.OnHookedObject;
+                evt.hookedObject = transform;
+                evt.barIncreasedSpeedPerSecond = barIncreasedSpeedPerSecond;
+                evt.maxGain = maxGain;
+                EventManager.Broadcast(evt);
             }
         }
     }

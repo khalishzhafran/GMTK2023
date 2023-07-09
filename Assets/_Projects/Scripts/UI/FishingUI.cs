@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 using GMTK.EventSystem;
 
@@ -11,6 +12,13 @@ namespace GMTK.UI
         [SerializeField] private GameObject fishingBar;
         [SerializeField] private RectTransform failBar;
         [SerializeField] private RectTransform successBar;
+
+        [Space(10)]
+        [Header("Power Bar")]
+        [SerializeField] private GameObject powerBar;
+        [SerializeField] private Image powerBarBackground;
+        [SerializeField] private Image powerBarFill;
+        private float powerColorMultiplier = 0.8f;
 
         private float maxBarSize = 200f;
 
@@ -41,12 +49,14 @@ namespace GMTK.UI
         {
             EventManager.AddListener<OnHookedObject>(OnHookedObject);
             EventManager.AddListener<OnFinishFishingGame>(OnFinishFishingGame);
+            EventManager.AddListener<OnReeling>(OnReeling);
         }
 
         private void OnDisable()
         {
             EventManager.RemoveListener<OnHookedObject>(OnHookedObject);
             EventManager.RemoveListener<OnFinishFishingGame>(OnFinishFishingGame);
+            EventManager.RemoveListener<OnReeling>(OnReeling);
         }
 
         private void OnHookedObject(OnHookedObject evt)
@@ -57,30 +67,62 @@ namespace GMTK.UI
             barIncreaseMultiplier = maxBarSize / maxGain;
 
             ResetFillBars();
-            StartCoroutine(ShowFishingBarCoroutine());
+            StartCoroutine(ShowBarCoroutine());
         }
 
         private void OnFinishFishingGame(OnFinishFishingGame evt)
         {
-            Debug.Log(successBar.sizeDelta.y / maxBarSize * maxGain);
-            HideFishingBar();
+            Debug.Log("Called");
+            HideBar();
         }
 
-        private IEnumerator ShowFishingBarCoroutine()
+        private void OnReeling(OnReeling evt)
         {
-            yield return new WaitForSeconds(0.8f);
-            fishingBar.SetActive(true);
+            powerBarFill.fillAmount = (float)evt.fishPower / (float)evt.maxFishPower;
+
+            ChangePowerFillColor(powerBarFill.fillAmount);
         }
 
-        private void HideFishingBar()
+        private IEnumerator ShowBarCoroutine()
+        {
+            yield return new WaitForSeconds(0.5f);
+            fishingBar.SetActive(true);
+            powerBar.SetActive(true);
+        }
+
+        private void ChangePowerFillColor(float fillAmount)
+        {
+            if (fillAmount <= 0.5f)
+            {
+                powerBarFill.color = Color.Lerp(Color.yellow, Color.green, fillAmount);
+                powerBarBackground.color = Color.Lerp(Color.yellow * powerColorMultiplier, Color.green * powerColorMultiplier, fillAmount * powerColorMultiplier);
+            }
+            else if (fillAmount > 0.5f && fillAmount <= 0.7f)
+            {
+                powerBarFill.color = Color.Lerp(Color.red, Color.yellow, fillAmount);
+                powerBarBackground.color = Color.Lerp(Color.red * powerColorMultiplier, Color.yellow * powerColorMultiplier, fillAmount * powerColorMultiplier);
+            }
+            else
+            {
+                powerBarFill.color = Color.Lerp(Color.red, Color.red, fillAmount);
+                powerBarBackground.color = Color.Lerp(Color.red * powerColorMultiplier, Color.red * powerColorMultiplier, fillAmount * powerColorMultiplier);
+            }
+        }
+
+        private void HideBar()
         {
             fishingBar.SetActive(false);
+            powerBar.SetActive(false);
         }
 
         private void ResetFillBars()
         {
             failBar.sizeDelta = new Vector2(failBar.sizeDelta.x, 0f);
             successBar.sizeDelta = new Vector2(successBar.sizeDelta.x, 0f);
+
+            powerBarFill.fillAmount = 0f;
+            powerBarFill.color = Color.Lerp(Color.yellow, Color.green, powerBarFill.fillAmount);
+            powerBarBackground.color = Color.Lerp(Color.yellow * powerColorMultiplier, Color.green * powerColorMultiplier, powerBarFill.fillAmount * powerColorMultiplier);
         }
     }
 }

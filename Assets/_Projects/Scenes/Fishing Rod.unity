@@ -473,6 +473,8 @@ MonoBehaviour:
   currentMood: 0
   maxMood: 100
   minMood: 0
+  satisfiedStartRange: 50
+  satisfiedEndRange: 70
 --- !u!4 &1128088542
 Transform:
   m_ObjectHideFlags: 0
@@ -910,10 +912,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5900421086144234404, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
-      propertyPath: speed
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5900421086144234407, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_Name
       value: Fish
@@ -971,14 +969,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5966826339976583602, guid: c17be633779812546993b5491c51f20e, type: 3}
-      propertyPath: droptime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5966826339976583602, guid: c17be633779812546993b5491c51f20e, type: 3}
-      propertyPath: reelSlider
-      value: 
-      objectReference: {fileID: 1372383217}
     - target: {fileID: 5966826340422069764, guid: c17be633779812546993b5491c51f20e, type: 3}
       propertyPath: m_Name
       value: Fishing Rod

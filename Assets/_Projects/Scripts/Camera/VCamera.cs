@@ -23,6 +23,7 @@ namespace GMTK.Cameras
             else
             {
                 virtualCamera.Priority = 0;
+                CameraSwitcher.SetSecondCamera(virtualCamera);
             }
         }
 
@@ -39,7 +40,7 @@ namespace GMTK.Cameras
 
     public enum CameraSetting
     {
-        None,
-        Default
+        Default,
+        Second
     }
 }

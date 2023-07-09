@@ -4962,8 +4962,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbdcd12fce0ccd46a3cf86218938b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reelSlider: {fileID: 0}
   reelSpeed: 1.5
+  droptime: 1
+  moodGain: 0
 --- !u!1 &5966826340202697948
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ namespace GMTK.Cameras
     {
         private static List<CinemachineVirtualCamera> virtualCameraList = new List<CinemachineVirtualCamera>();
         private static CinemachineVirtualCamera defaultCamera;
+        private static CinemachineVirtualCamera secondCamera;
         private static CinemachineVirtualCamera currentCamera;
 
         public static void SetDefaultCamera(CinemachineVirtualCamera camera)
@@ -17,13 +18,26 @@ namespace GMTK.Cameras
             currentCamera = camera;
         }
 
-        public static void SwitchCamera(CinemachineVirtualCamera newCamera)
+        public static void SetSecondCamera(CinemachineVirtualCamera camera)
         {
-            if (currentCamera != null)
-            {
-                currentCamera.Priority = 0;
-            }
+            secondCamera = camera;
+        }
 
+        public static void SwitchCamera()
+        {
+            if (currentCamera == defaultCamera)
+            {
+                SetCurrentCamera(secondCamera);
+            }
+            else
+            {
+                SetCurrentCamera(defaultCamera);
+            }
+        }
+
+        private static void SetCurrentCamera(CinemachineVirtualCamera newCamera)
+        {
+            currentCamera.Priority = 0;
             currentCamera = newCamera;
             currentCamera.Priority = 10;
         }

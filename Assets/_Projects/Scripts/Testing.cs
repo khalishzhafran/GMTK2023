@@ -13,7 +13,7 @@ namespace GMTK
         [SerializeField] private CinemachineVirtualCamera defaultCamera;
         [SerializeField] private CinemachineVirtualCamera secondCamera;
 
-        [SerializeField] private List<IkanTesting> hookedObjects;
+        [SerializeField] private List<FishTest> hookedObjects;
 
         private void Update()
         {
@@ -21,7 +21,7 @@ namespace GMTK
             {
                 if (CameraSwitcher.IsCurrentCamera(defaultCamera))
                 {
-                    CameraSwitcher.SwitchCamera(secondCamera);
+                    CameraSwitcher.SwitchCamera();
 
                     int randomObject = Random.Range(0, hookedObjects.Count);
 
@@ -33,7 +33,7 @@ namespace GMTK
                 }
                 else
                 {
-                    CameraSwitcher.SwitchCamera(defaultCamera);
+                    CameraSwitcher.SwitchCamera();
 
                     OnFinishFishingGame evt = Events.OnFinishFishingGame;
                     EventManager.Broadcast(evt);

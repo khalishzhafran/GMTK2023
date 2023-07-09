@@ -136,5 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2b7fa3a4aafa24e94314a14769b5cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  isCaught: 0
+  speed: 3
+  MaxMood: 25
+  moodGain: 1
   fishPower: 3

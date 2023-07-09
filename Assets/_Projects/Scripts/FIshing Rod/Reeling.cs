@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using GMTK.Fisherman;
+using GMTK.Cameras;
+using GMTK.EventSystem;
 
 namespace GMTK
 {
@@ -19,10 +21,9 @@ namespace GMTK
 
         private FishTest fish;
         private Hook hook;
-        private Fisherman.Fisher fisher;
-        float fishPower;
+        private Fisher fisher;
+        private float fishPower;
 
-        public int moodGain;
         private void Awake()
         {
             startingPos = transform.position;
@@ -51,16 +52,22 @@ namespace GMTK
 
                 if (Vector2.Distance(transform.position, startingPos) < 0.1f)
                 {
+                    isReeling = false;
+                    CameraSwitcher.SwitchCamera();
+
+                    OnFinishFishingGame evt = Events.OnFinishFishingGame;
+                    evt.isSuccessful = true;
+                    EventManager.Broadcast(evt);
+
                     StopAllCoroutines();
 
                     hook.enabled = true;
-                    isReeling = false;
                     rb.velocity = Vector2.zero;
                     GetComponent<CircleCollider2D>().enabled = true;
                     rb.gravityScale = 3;
 
-                    fisher.ChangeMood(moodGain * 1);
                     Destroy(fishRb.gameObject, 0.1f);
+                    fishRb = null;
                 }
             }
             else if (isReeling && fishRb == null)
@@ -91,7 +98,6 @@ namespace GMTK
             GetComponent<CircleCollider2D>().enabled = false;
 
             StartCoroutine(FishRelease());
-            StartCoroutine(MoodChanger());
         }
 
         private IEnumerator DropHook()
@@ -106,9 +112,14 @@ namespace GMTK
         {
             while (isReeling)
             {
-                Debug.Log(fishRb.velocity.y);
                 if (fishPower > 50)
                 {
+                    CameraSwitcher.SwitchCamera();
+
+                    OnFinishFishingGame evt = Events.OnFinishFishingGame;
+                    evt.isSuccessful = false;
+                    EventManager.Broadcast(evt);
+
                     fish.isCaught = false;
                     if (fish.transform.position.x > transform.position.x) fishRb.velocity = Vector2.right * 5;
                     else fishRb.velocity = Vector2.left * 5;
@@ -119,9 +130,16 @@ namespace GMTK
                     fish = null;
 
                     StopAllCoroutines();
+
+                    fishPower = 0;
                 }
                 if (fish != null)
                 {
+                    OnReeling evt = Events.OnReeling;
+                    evt.fishPower = fishPower;
+                    evt.maxFishPower = 50;
+                    EventManager.Broadcast(evt);
+
                     if (fish.transform.position.x > transform.position.x)
                     {
                         if (fishRb.velocity.x > 0f || fishRb.velocity.y < 0f)
@@ -132,7 +150,7 @@ namespace GMTK
                         }
                         else
                         {
-                            fishPower -= 0.5f;
+                            fishPower -= 1;
                             yield return new WaitForSeconds(0.1f);
                         }
                     }
@@ -142,29 +160,17 @@ namespace GMTK
                         if (fishRb.velocity.x < 0f || fishRb.velocity.y < 0f)
                         {
                             fishPower += fish.fishPower;
-                            Debug.Log(fishPower);
                             yield return new WaitForSeconds(0.01f);
                         }
                         else
                         {
-                            fishPower -= 0.5f;
+                            fishPower -= 1;
                             yield return new WaitForSeconds(0.1f);
                         }
                     }
                     yield return new WaitForSeconds(0.1f);
                 }
                 yield return new WaitForSeconds(0.1f);
-            }
-        }
-
-        private IEnumerator MoodChanger()
-        {
-            while (isReeling)
-            {
-                moodGain += fish.moodGain;
-                if (moodGain > fish.MaxMood)
-                    moodGain = fish.MaxMood;
-                yield return new WaitForSeconds(1f);
             }
         }
     }

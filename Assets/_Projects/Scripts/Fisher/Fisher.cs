@@ -16,6 +16,17 @@ namespace GMTK.Fisherman
         public float satisfiedEndRange = 70f;
 
 
+        private void OnEnable()
+        {
+            EventManager.AddListener<OnFinishFishingGame>(OnFinishFishingGame);
+        }
+
+        private void OnDisable()
+        {
+            EventManager.RemoveListener<OnFinishFishingGame>(OnFinishFishingGame);
+        }
+
+
 
         private void Update()
         {
@@ -44,6 +55,18 @@ namespace GMTK.Fisherman
             }
         }
         #endregion
+
+        private void OnFinishFishingGame(OnFinishFishingGame evt)
+        {
+            if (evt.isSuccessful)
+            {
+                ChangeMood(evt.successAmount);
+            }
+            else
+            {
+                ChangeMood(-evt.failedAmount);
+            }
+        }
 
 
 
