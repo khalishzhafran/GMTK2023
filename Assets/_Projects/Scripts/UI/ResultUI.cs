@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-using GMTK.Core;
+using GMTK.Managers;
 
 namespace GMTK.UI
 {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using GMTK.Core;
+using GMTK.Managers;
 using GMTK.EventSystem;
 
 namespace GMTK.Fisherman

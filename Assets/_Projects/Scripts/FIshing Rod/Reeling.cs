@@ -55,6 +55,7 @@ namespace GMTK
                     CameraSwitcher.SwitchCamera();
 
                     OnFinishFishingGame evt = Events.OnFinishFishingGame;
+                    evt.isTrash = false;
                     evt.isSuccessful = true;
                     EventManager.Broadcast(evt);
 

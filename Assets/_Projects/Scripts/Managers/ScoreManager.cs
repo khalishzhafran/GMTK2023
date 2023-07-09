@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GMTK.Core
+using GMTK.Core;
+
+namespace GMTK.Managers
 {
     public class ScoreManager : MonoBehaviour
     {
