@@ -11,9 +11,15 @@ namespace GMTK.UI
 {
     public class ResultUI : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI scoreText;
-        [SerializeField] private TextMeshProUGUI caughtFishText;
-        [SerializeField] private TextMeshProUGUI caughtTrashText;
+        [SerializeField] private TextMeshProUGUI fishCaughtText;
+        [SerializeField] private TextMeshProUGUI fishEscapedText;
+        [SerializeField] private TextMeshProUGUI trashCollectedText;
+
+        [SerializeField] private RectTransform moodBalanceBar;
+        [SerializeField] private RectTransform moodDividerBar;
+
+        [SerializeField] private float satisfiedStartPosition;
+        [SerializeField] private float satisfiedWidthBar;
 
         [SerializeField] private Button nextDayButton;
         [SerializeField] private Button mainMenuButton;
@@ -22,7 +28,7 @@ namespace GMTK.UI
         {
             nextDayButton.onClick.AddListener(() =>
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                SceneManager.LoadScene(1);
             });
 
             mainMenuButton.onClick.AddListener(() =>
@@ -33,9 +39,12 @@ namespace GMTK.UI
 
         private void Start()
         {
-            scoreText.text = ScoreManager.Instance.scoreSO.score.ToString();
-            caughtFishText.text = ScoreManager.Instance.scoreSO.caughtFishCount.ToString();
-            caughtTrashText.text = ScoreManager.Instance.scoreSO.caughtTrashCount.ToString();
+            fishCaughtText.text = $"Fish Caught Count : {ScoreManager.Instance.scoreSO.caughtFishCount}";
+            fishEscapedText.text = $"Fish Escaped Count : {ScoreManager.Instance.scoreSO.escapedFishCount}";
+            trashCollectedText.text = $"Trash Collected Count : {ScoreManager.Instance.scoreSO.collectTrashCount}";
+
+            satisfiedStartPosition = ScoreManager.Instance.scoreSO.satisfiedStartRange;
+            satisfiedWidthBar = ScoreManager.Instance.scoreSO.satisfiedEndRange - ScoreManager.Instance.scoreSO.satisfiedStartRange;
         }
     }
 }
