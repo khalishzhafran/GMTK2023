@@ -20,6 +20,7 @@ namespace GMTK
         public Rigidbody2D fishRb { get; set; }
 
         private FishTest fish;
+        private Trash trash;
         private Hook hook;
         private Fisher fisher;
         private float fishPower;
@@ -43,8 +44,6 @@ namespace GMTK
         {
             if (isReeling && fishRb != null)
             {
-                FishRelease();
-
                 Vector3 direction = (startingPos - transform.position).normalized;
                 Vector2 hookPower = direction * reelSpeed;
                 rb.velocity = hookPower + fishRb.velocity;
@@ -68,6 +67,34 @@ namespace GMTK
 
                     Destroy(fishRb.gameObject, 0.1f);
                     fishRb = null;
+                }
+            }
+            else if (isReeling && trash != null)
+            {
+                Vector3 direction = (startingPos - transform.position).normalized;
+                Vector2 hookPower = direction * reelSpeed;
+                rb.velocity = hookPower;
+                hook.enabled = false;
+
+                Debug.Log("Trash");
+
+                if (Vector2.Distance(transform.position, startingPos) < 0.1f)
+                {
+                    isReeling = false;
+                    CameraSwitcher.SwitchCamera();
+
+                    OnFinishFishingGame evt = Events.OnFinishFishingGame;
+                    evt.isSuccessful = true;
+                    EventManager.Broadcast(evt);
+
+                    StopAllCoroutines();
+
+                    hook.enabled = true;
+                    rb.velocity = Vector2.zero;
+                    GetComponent<CircleCollider2D>().enabled = true;
+                    rb.gravityScale = 3;
+
+                    Destroy(fishRb.gameObject, 0.1f);
                 }
             }
             else if (isReeling && fishRb == null)
@@ -98,6 +125,15 @@ namespace GMTK
             GetComponent<CircleCollider2D>().enabled = false;
 
             StartCoroutine(FishRelease());
+        }
+
+        public void GetTrash(Trash trash)
+        {
+            isReeling = true;
+            this.trash = trash;
+
+            rb.gravityScale = 0;
+            GetComponent<CircleCollider2D>().enabled = false;
         }
 
         private IEnumerator DropHook()
