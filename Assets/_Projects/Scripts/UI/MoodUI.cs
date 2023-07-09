@@ -17,8 +17,6 @@ namespace GMTK.UI
 
         [SerializeField] private float warningPercentage = 10;
 
-        private float currentPlayerMood;
-
         private float satisfiedStartPosition;
         private float satisfiedWidthBar;
 
@@ -30,12 +28,11 @@ namespace GMTK.UI
 
             satisfiedStartPosition = fisher.satisfiedStartRange;
             satisfiedWidthBar = fisher.satisfiedEndRange - fisher.satisfiedStartRange;
-            currentPlayerMood = fisher.currentMood;
 
             moodBalanceBar.anchoredPosition = new Vector2(satisfiedStartPosition, moodBalanceBar.anchoredPosition.y);
             moodBalanceBar.sizeDelta = new Vector2(satisfiedWidthBar, moodBalanceBar.sizeDelta.y);
 
-            moodDividerBar.anchoredPosition = new Vector2(moodDividerBar.anchoredPosition.x + currentPlayerMood, moodDividerBar.anchoredPosition.y);
+            moodDividerBar.anchoredPosition = new Vector2(moodDividerBar.anchoredPosition.x + fisher.currentMood, moodDividerBar.anchoredPosition.y);
         }
 
         private void OnEnable()

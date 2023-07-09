@@ -7,7 +7,6 @@ namespace GMTK.Misc
 {
     public class FloatingText : MonoBehaviour
     {
-        [SerializeField] private float textFadeSpeed = 1f;
         private TextMeshProUGUI floatingText;
         private Animator animator;
 
