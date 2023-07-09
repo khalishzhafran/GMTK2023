@@ -5,6 +5,7 @@ using UnityEngine;
 using GMTK.Fisherman;
 using GMTK.EventSystem;
 using GMTK.Cameras;
+using System;
 
 namespace GMTK
 {
@@ -30,6 +31,17 @@ namespace GMTK
         void FixedUpdate()
         {
             Moving();
+            RotateToDirection();
+        }
+
+        private void RotateToDirection()
+        {
+            //rotate to velocity direction
+            if (rb.velocity != Vector2.zero)
+            {
+                float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            }
         }
 
         private void Moving()
