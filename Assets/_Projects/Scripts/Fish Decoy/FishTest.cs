@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using GMTK.Fisherman;
+
 namespace GMTK
 {
     public class FishTest : MonoBehaviour
     {
-        private Fisher.Fisher fisher;
+        private Fisher fisher;
         private bool isCaught = false;
         private Rigidbody2D rb;
         public float speed = 1f;
         public float fishPower = 1;
         void Awake()
         {
-            fisher = FindObjectOfType<Fisher.Fisher>();
+            fisher = FindObjectOfType<Fisher>();
             rb = GetComponent<Rigidbody2D>();
         }
 

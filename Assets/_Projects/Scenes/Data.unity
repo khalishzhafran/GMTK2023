@@ -156,11 +156,11 @@ RectTransform:
   m_Father: {fileID: 778571922}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 2, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &8293064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1817,10 +1817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moodBalanceBar: {fileID: 242942625}
   moodDividerBar: {fileID: 8293063}
-  satisfiedStartPosition: 50
-  satisfiedWidthBar: 40
-  moodDividerMaxPosition: 50
-  moodDividerMinPosition: -50
+  currentPlayerMood: 0
 --- !u!114 &848189351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2333,6 +2330,8 @@ MonoBehaviour:
   currentMood: 0
   maxMood: 100
   minMood: 0
+  satisfiedStartRange: 50
+  satisfiedEndRange: 70
 --- !u!1 &1572350032
 GameObject:
   m_ObjectHideFlags: 0

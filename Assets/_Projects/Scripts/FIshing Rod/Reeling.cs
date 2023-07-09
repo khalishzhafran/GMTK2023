@@ -17,7 +17,7 @@ namespace GMTK
 
         private FishTest fish;
         private Hook hook;
-        private Fisher.Fisher fisher;
+        private Fisherman.Fisher fisher;
         float fishPower;
 
         private void Awake()
@@ -25,7 +25,7 @@ namespace GMTK
             startingPos = transform.position;
             hook = GetComponent<Hook>();
             rb = GetComponent<Rigidbody2D>();
-            fisher = FindObjectOfType<Fisher.Fisher>();
+            fisher = FindObjectOfType<Fisherman.Fisher>();
         }
 
         private void FixedUpdate()
