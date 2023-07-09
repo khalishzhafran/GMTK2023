@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Broken Fishing Road
       objectReference: {fileID: 0}
+    - target: {fileID: 2751902239506305288, guid: 76f98b12527b93a4ca7346645cec8bdd, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2751902239506305289, guid: 76f98b12527b93a4ca7346645cec8bdd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2751902239506305290, guid: 76f98b12527b93a4ca7346645cec8bdd, type: 3}
       propertyPath: m_RootOrder
       value: 0

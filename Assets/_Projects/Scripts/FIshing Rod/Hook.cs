@@ -6,24 +6,30 @@ namespace GMTK
 {
     public class Hook : MonoBehaviour
     {
+        [SerializeField] private CircleCollider2D wall;
+        [SerializeField] private CircleCollider2D trigger;
         private bool isSelected = false;
         private bool inWater = false;
         private Rigidbody2D rb;
-        private CircleCollider2D col;
         private Hook hook;
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
-            col = GetComponent<CircleCollider2D>();
             hook = GetComponent<Hook>();
+        }
+
+        public void ColliderCOntrol(bool state)
+        {
+            wall.enabled = state;
+            trigger.enabled = state;
         }
 
         private void OnMouseDown()
         {
             isSelected = true;
-            col.enabled = false;
-            Debug.Log("Mouse Down");
+
+            ColliderCOntrol(false);
         }
 
         private void OnMouseDrag()
@@ -44,7 +50,7 @@ namespace GMTK
                 isSelected = false;
                 PositionBoundaries();
 
-                col.enabled = true;
+                ColliderCOntrol(true);
             }
         }
 

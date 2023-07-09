@@ -10,6 +10,7 @@ namespace GMTK
 {
     public class Trash : MonoBehaviour
     {
+        public static int trashCount = 0;
         public bool isCaught = false;
         private Rigidbody2D rb;
 
@@ -20,6 +21,16 @@ namespace GMTK
         void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
+        }
+
+        private void OnEnable()
+        {
+            trashCount++;
+        }
+
+        private void OnDestroy()
+        {
+            trashCount--;
         }
 
         private void Update()

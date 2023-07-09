@@ -158,7 +158,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCaught: 0
+  patrolSpeed: 1
+  direction: 1
   speed: 3
   fishPower: 3
+  timer: {x: 5, y: 15}
   moodGainSpeedPerSecond: 2
   maxGain: 50
