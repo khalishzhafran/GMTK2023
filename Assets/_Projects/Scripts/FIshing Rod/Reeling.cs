@@ -11,6 +11,7 @@ namespace GMTK
     public class Reeling : MonoBehaviour
     {
         public static Reeling instance;
+        [SerializeField] private GameObject asdaewd;
         [SerializeField] private float reelSpeed = 1f;
         [SerializeField] private float droptime;
         public bool isReeling { get; set; } = false;
@@ -42,7 +43,7 @@ namespace GMTK
         {
             if (isReeling && fishRb != null)
             {
-
+                MancingCoy.instance.ReelIn();
                 Vector3 direction = (startingPos - transform.position).normalized;
                 Vector2 hookPower = direction * reelSpeed;
                 rb.velocity = hookPower + fishRb.velocity;
@@ -71,10 +72,16 @@ namespace GMTK
 
                     Destroy(fishRb.gameObject, 0.1f);
                     fishRb = null;
+
+                    MancingCoy.instance.Throw();
+                    Destroy(asdaewd);
+                    Destroy(gameObject);
                 }
             }
             else if (isReeling && trash != null)
             {
+                MancingCoy.instance.ReelIn();
+
                 Vector3 direction = (startingPos - transform.position).normalized;
                 Vector2 hookPower = direction * reelSpeed;
                 rb.velocity = hookPower;
@@ -101,7 +108,12 @@ namespace GMTK
                     GetComponent<CircleCollider2D>().enabled = true;
                     rb.gravityScale = 3;
 
+
                     Destroy(trash.gameObject, 0.1f);
+
+                    MancingCoy.instance.Throw();
+                    Destroy(asdaewd);
+                    Destroy(gameObject);
                 }
             }
             else if (isReeling && fishRb == null)
@@ -152,6 +164,10 @@ namespace GMTK
             hook.enabled = true;
             GetComponent<CircleCollider2D>().enabled = true;
             rb.gravityScale = 3;
+
+            MancingCoy.instance.Throw();
+            Destroy(asdaewd);
+            Destroy(gameObject);
         }
 
         private IEnumerator FishRelease()
