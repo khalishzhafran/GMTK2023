@@ -22,6 +22,14 @@ namespace GMTK
             rb = GetComponent<Rigidbody2D>();
         }
 
+        private void Update()
+        {
+            if (isCaught)
+            {
+                transform.position = transform.parent.position;
+            }
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.tag == "Hook" && !isCaught)
