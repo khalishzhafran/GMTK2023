@@ -9,6 +9,9 @@ namespace GMTK.Fisherman
 {
     public class Fisher : MonoBehaviour
     {
+        public static Fisher Instance { get; private set; }
+
+        public string fishermanName;
         public float currentMood;
         [SerializeField] private float maxMood = 100f;
         [SerializeField] private float minMood = 0f;
@@ -16,11 +19,25 @@ namespace GMTK.Fisherman
         public float satisfiedStartRange = 50f;
         public float satisfiedEndRange = 70f;
 
+        private void Awake()
+        {
+            if (Instance != null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+        }
+
+
 
         private void OnEnable()
         {
             EventManager.AddListener<OnFinishFishingGame>(OnFinishFishingGame);
         }
+
+
 
         private void OnDisable()
         {
@@ -28,34 +45,6 @@ namespace GMTK.Fisherman
         }
 
 
-
-        private void Update()
-        {
-            // Dev Only
-            TestingMood();
-        }
-
-
-        #region Dev Only
-        private void OnGUI()
-        {
-            GUI.Label(new Rect(10, 10, 100, 20), "Mood: " + currentMood);
-        }
-
-
-
-        private void TestingMood()
-        {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                ChangeMood(10f);
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                ChangeMood(-10f);
-            }
-        }
-        #endregion
 
         private void OnFinishFishingGame(OnFinishFishingGame evt)
         {

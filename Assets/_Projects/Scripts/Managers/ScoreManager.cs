@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using GMTK.Core;
+using GMTK.EventSystem;
 
 namespace GMTK.Managers
 {
@@ -21,6 +22,23 @@ namespace GMTK.Managers
             }
 
             Instance = this;
+        }
+
+        private void OnEnable()
+        {
+            EventManager.AddListener<OnDayChanged>(OnDayChanged);
+        }
+
+        private void OnDisable()
+        {
+            EventManager.RemoveListener<OnDayChanged>(OnDayChanged);
+        }
+
+        private void OnDayChanged(OnDayChanged evt)
+        {
+            scoreSO.currentPlayerMood = evt.currentPlayerMood;
+            scoreSO.satisfiedStartRange = evt.satisfiedStartRange;
+            scoreSO.satisfiedEndRange = evt.satisfiedEndRange;
         }
     }
 }

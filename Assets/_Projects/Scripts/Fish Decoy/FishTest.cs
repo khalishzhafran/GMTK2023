@@ -11,7 +11,6 @@ namespace GMTK
 {
     public class FishTest : MonoBehaviour
     {
-        private Fisher fisher;
         public bool isCaught = false;
         private Rigidbody2D rb;
         public float speed = 1f;
@@ -23,7 +22,6 @@ namespace GMTK
         public float maxGain = 10f;
         void Awake()
         {
-            fisher = FindObjectOfType<Fisher>();
             rb = GetComponent<Rigidbody2D>();
         }
 

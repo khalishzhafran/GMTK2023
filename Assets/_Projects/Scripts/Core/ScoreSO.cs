@@ -10,6 +10,9 @@ namespace GMTK.Core
         public int score = 0;
         public int caughtFishCount = 0;
         public int caughtTrashCount = 0;
+        public float currentPlayerMood = 0f;
+        public float satisfiedStartRange = 0f;
+        public float satisfiedEndRange = 0f;
 
         public void AddScore(int scoreToAdd)
         {

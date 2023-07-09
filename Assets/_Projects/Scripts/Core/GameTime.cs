@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using GMTK.EventSystem;
+using GMTK.Fisherman;
 
 namespace GMTK.Core
 {
@@ -39,6 +40,9 @@ namespace GMTK.Core
 
                 OnDayChanged evt = Events.OnDayChanged;
                 evt.currentDay = day.currentDay;
+                evt.currentPlayerMood = Fisher.Instance.currentMood;
+                evt.satisfiedStartRange = Fisher.Instance.satisfiedStartRange;
+                evt.satisfiedEndRange = Fisher.Instance.satisfiedEndRange;
                 EventManager.Broadcast(evt);
                 // You can trigger events here when a new day starts
             }

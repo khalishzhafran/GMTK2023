@@ -16,7 +16,7 @@ namespace GMTK.UI
         [SerializeField] private TextMeshProUGUI caughtTrashText;
 
         [SerializeField] private Button nextDayButton;
-        [SerializeField] private Button retryDayButton;
+        [SerializeField] private Button mainMenuButton;
 
         private void Awake()
         {
@@ -25,9 +25,9 @@ namespace GMTK.UI
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             });
 
-            retryDayButton.onClick.AddListener(() =>
+            mainMenuButton.onClick.AddListener(() =>
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                SceneManager.LoadScene(0);
             });
         }
 
