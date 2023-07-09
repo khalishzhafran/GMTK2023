@@ -7,13 +7,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3647556793649581045, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 9675b5c0e17a7f44bb821295f9e4a60a, type: 2}
     - target: {fileID: 5900421086144234404, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: patrolSpeed
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5900421086144234407, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_Name
-      value: ikan 2
+      value: ikan 5
       objectReference: {fileID: 0}
     - target: {fileID: 5900421086144234408, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_RootOrder
@@ -61,11 +65,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5900421086144234411, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5900421086144234411, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_Color.g
-      value: 0.83267355
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5900421086144234411, guid: b4fc35ff337f98b42821fe34bf05aadf, type: 3}
       propertyPath: m_Color.r

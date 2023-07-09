@@ -7,6 +7,7 @@ namespace GMTK
     public class Thrower : MonoBehaviour
     {
         public static Thrower instance;
+        [SerializeField] AudioClip throwClip;
         [SerializeField] private float throwForce = 10f;
         [SerializeField] private GameObject[] trashPrefabs;
         [SerializeField] private Transform throwPoint;
@@ -34,6 +35,7 @@ namespace GMTK
 
         public void ThrowTrash()
         {
+            SoundManager.instance.PlaySFX(throwClip);
             int randomIndex = Random.Range(0, trashPrefabs.Length);
             GameObject trash = Instantiate(trashPrefabs[randomIndex], transform.position, Quaternion.identity);
             Vector2 direction = (throwPoint.position - transform.position).normalized;

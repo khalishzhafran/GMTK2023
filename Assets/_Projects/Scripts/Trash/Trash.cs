@@ -10,6 +10,7 @@ namespace GMTK
 {
     public class Trash : MonoBehaviour
     {
+        [SerializeField] AudioClip caughtClip;
         public static int trashCount = 0;
         public bool isCaught = false;
         private Rigidbody2D rb;
@@ -45,6 +46,7 @@ namespace GMTK
         {
             if (other.gameObject.tag == "Hook" && !isCaught)
             {
+                SoundManager.instance.PlaySFX(caughtClip);
                 isCaught = true;
 
                 other.gameObject.GetComponent<Reeling>().GetTrash(this);
