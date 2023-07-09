@@ -42,9 +42,11 @@ namespace GMTK
         {
             if (isReeling && fishRb != null)
             {
+
                 Vector3 direction = (startingPos - transform.position).normalized;
                 Vector2 hookPower = direction * reelSpeed;
                 rb.velocity = hookPower + fishRb.velocity;
+                hook.ColliderCOntrol(false);
                 hook.enabled = false;
 
                 if (Vector2.Distance(transform.position, startingPos) < 0.1f)
@@ -62,6 +64,7 @@ namespace GMTK
                     StopAllCoroutines();
 
                     hook.enabled = true;
+                    hook.ColliderCOntrol(true);
                     rb.velocity = Vector2.zero;
                     GetComponent<CircleCollider2D>().enabled = true;
                     rb.gravityScale = 3;
@@ -75,6 +78,7 @@ namespace GMTK
                 Vector3 direction = (startingPos - transform.position).normalized;
                 Vector2 hookPower = direction * reelSpeed;
                 rb.velocity = hookPower;
+                hook.ColliderCOntrol(false);
                 hook.enabled = false;
 
                 if (Vector2.Distance(transform.position, startingPos) < 0.1f)
@@ -92,6 +96,7 @@ namespace GMTK
                     StopAllCoroutines();
 
                     hook.enabled = true;
+                    hook.ColliderCOntrol(true);
                     rb.velocity = Vector2.zero;
                     GetComponent<CircleCollider2D>().enabled = true;
                     rb.gravityScale = 3;
@@ -103,11 +108,14 @@ namespace GMTK
             {
                 Vector3 direction = (startingPos - transform.position).normalized;
                 rb.velocity = direction * 5;
+                hook.ColliderCOntrol(false);
                 hook.enabled = false;
                 if (Vector2.Distance(transform.position, startingPos) < 0.1f)
                 {
                     StopAllCoroutines();
                     isReeling = false;
+                    hook.enabled = true;
+                    hook.ColliderCOntrol(true);
                     rb.velocity = Vector2.zero;
 
                     StartCoroutine(DropHook());
@@ -163,8 +171,7 @@ namespace GMTK
                     if (fish.transform.position.x > transform.position.x) fishRb.velocity = Vector2.right * 5;
                     else fishRb.velocity = Vector2.left * 5;
 
-                    Destroy(fishRb.gameObject, 3f);
-
+                    fish.transform.parent = null;
                     fishRb = null;
                     fish = null;
 

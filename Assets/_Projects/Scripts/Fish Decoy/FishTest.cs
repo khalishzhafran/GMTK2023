@@ -11,6 +11,7 @@ namespace GMTK
 {
     public class FishTest : MonoBehaviour
     {
+        public static int fishCount = 0;
         public bool isCaught = false;
         private bool inWater = true;
         private Rigidbody2D rb;
@@ -18,6 +19,8 @@ namespace GMTK
         public float direction = 1f;
         public float speed = 1f;
         public float fishPower = 1;
+        public Vector2 timer;
+
 
         [Space(10)]
         [Header("Mood Gain")]
@@ -28,7 +31,17 @@ namespace GMTK
             rb = GetComponent<Rigidbody2D>();
         }
 
-        // Update is called once per frame
+        private void OnEnable()
+        {
+            fishCount++;
+            StartCoroutine(FishChangePatrolDirection());
+        }
+
+        private void OnDestroy()
+        {
+            fishCount--;
+        }
+
         void FixedUpdate()
         {
             Moving();
@@ -69,6 +82,14 @@ namespace GMTK
             if (!isCaught && inWater)
             {
                 rb.velocity = Vector2.right * direction * patrolSpeed;
+                if (transform.position.x > 16)
+                {
+                    Destroy(gameObject);
+                }
+                else if (transform.position.x < -16)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
 
@@ -96,6 +117,13 @@ namespace GMTK
             {
                 inWater = false;
             }
+        }
+
+        private IEnumerator FishChangePatrolDirection()
+        {
+            yield return new WaitForSeconds(UnityEngine.Random.Range(timer.x, timer.y));
+            direction *= -1;
+            StartCoroutine(FishChangePatrolDirection());
         }
     }
 }

@@ -22,6 +22,9 @@ namespace GMTK.Core
 
         private void SpawnObject()
         {
+            if (FishTest.fishCount >= 5)
+                return;
+
             int randomIndex = Random.Range(0, spawnObjectList.Count);
             float randomYPosition = Random.Range(spawnBottomBound, spawnTopBound);
 
